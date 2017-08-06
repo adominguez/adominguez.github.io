@@ -1,0 +1,25 @@
+language: node_js
+sudo: false
+addons:
+  firefox: latest
+  apt:
+    sources:
+    - google-chrome
+    packages:
+    - google-chrome-stable
+node_js:
+- '4.1'
+- '5.1'
+before_script:
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- sleep 3
+- git config --global user.email "chuckh@hware.com"
+- git config --global user.name "Travis-CI"
+- npm i -g bower gulp
+- bower i
+script:
+- ./travis-runner.sh
+env:
+  global:
+  - secure: tz+sJtFYyS9EyInqcnp/lGvdLBfADI5PeQiJOxcGFud/CAa8gXJYRfnHYnYmB0U+f0Mootl/FApDdNWF4nERY//GiTVZR+jRufL6BHyP0yKXWdy2bFsIg9mgM2sNISx3g+gXfQUrepkQfmxcRGp9cTeZf2X1e0pNKMwQnPJFcUXUknzU5TDi56bUd8y14e9EhP3h2dNw4kP0VdBEpxgpSrjtfTUIbXw2Jv9JJ+uuXl42YWGjVZ/+CkqBnUIPbjo5oC9qmNj/4D5pbndpjnCnjn9gpzihQm2DF1uS0vKVej3OGvYCSCEEYvTuDYJUMiGuxY4elFaaAC43AwLNIUXYVxmcGTZpdsQj5Qhxd5fEFvcSvxRSDQabOl7wcMn84ejFlVbMmz0A/qCdR6gav3Q8QSa28vL+XHMK4XfSEsF44LFIJUg44QlVPSoz8R5WroV8bmrqyQbDY8MkzQnou1vzWRa108L8Y+15TGJCRMEszKLaUGgP3s8+RWzooXsJogeadT80T8s4fZmzjqooKf/yJ03e9kqL804Mv0XiEGSWrrppwB58gQ5ufhEn57nVIW/LLP2m1Jd+KvD9lDpCyp0y1cW6twSVbfuDabRi4wbEbtnM0HwcI959kWRgULnpigEeCme0GLppQqEKF9BER6L7mRBC+SO2ap+JcLAx25iQzDE=
