@@ -15,8 +15,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta charset="utf-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Polymer Starter Kit" />
-  <title>Polymer Starter Kit</title>
+  <meta name="generator" content="ADominguez" />
+  <title>Página personal de Alberto Dominguez, desarrollador front end</title>
   <!-- Place favicon.ico in the `app/` directory -->
 
   <!-- Chrome for Android theme color -->
@@ -36,7 +36,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
+  <meta name="apple-mobile-web-app-title" content="ADominguez">
   <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
 
   <!-- Tile icon for Win8 (144x144) -->
@@ -74,14 +74,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-          <a data-route="home" href="{{baseUrl}}">
+          <a data-route="inicio" href="{{baseUrl}}">
             <iron-icon icon="home"></iron-icon>
-            <span>Home</span>
+            <span>Inicio</span>
           </a>
 
-          <a data-route="users" href="users">
+          <a data-route="mi-historia" href="mi-historia">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Mi historia</span>
+          </a>
+
+          <a data-route="curriculum" href="curriculum">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Curriculum</span>
+          </a>
+
+          <a data-route="blog" href="blog">
             <iron-icon icon="info"></iron-icon>
-            <span>Users</span>
+            <span>Blog</span>
+          </a>
+
+          <a data-route="webcomponents" href="webcomponents">
+            <iron-icon icon="info"></iron-icon>
+            <span>Webcomponents</span>
           </a>
 
           <a data-route="contact" href="contact">
@@ -105,7 +120,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application name -->
           <div class="middle middle-container center horizontal layout">
-            <div class="app-name">Polymer Starter Kit</div>
+            <div class="app-name">ADominguez</div>
           </div>
 
           <!-- Application sub title -->
@@ -119,7 +134,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
-            <section data-route="home">
+            <section data-route="inicio">
               <paper-material elevation="1">
                 <my-greeting></my-greeting>
 
@@ -153,18 +168,50 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
             </section>
 
-            <section data-route="users">
+            <section data-route="mi-historia">
               <paper-material elevation="1">
-                <h2 class="page-title">Users</h2>
-                <p>This is the users section</p>
-                <a href$="{{baseUrl}}users/Addy">Addy</a><br>
-                <a href$="{{baseUrl}}users/Rob">Rob</a><br>
-                <a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-                <a href$="{{baseUrl}}users/Sam">Sam</a>
+                <h2 class="page-title">Mi historia</h2>
+                <p>This is story</p>
               </paper-material>
             </section>
 
-            <section data-route="user-info">
+            <section data-route="curriculum">
+              <paper-material elevation="1">
+                <h2 class="page-title">Curriculum</h2>
+                <p>This is curriculum</p>
+              </paper-material>
+            </section>
+
+            <section data-route="blog">
+              <paper-material elevation="1">
+                <h2 class="page-title">Blog</h2>
+                <p>This is the blog section</p>
+                <a href$="{{baseUrl}}blog/Addy">Addy</a><br>
+                <a href$="{{baseUrl}}blog/Rob">Rob</a><br>
+                <a href$="{{baseUrl}}blog/Chuck">Chuck</a><br>
+                <a href$="{{baseUrl}}blog/Sam">Sam</a>
+              </paper-material>
+            </section>
+
+            <section data-route="webcomponents">
+              <paper-material elevation="1">
+                <h2 class="page-title">Webcomponents</h2>
+                <p>This is the users webcomponents</p>
+                <a href$="{{baseUrl}}webcomponents/Addy">Addy</a><br>
+                <a href$="{{baseUrl}}webcomponents/Rob">Rob</a><br>
+                <a href$="{{baseUrl}}webcomponents/Chuck">Chuck</a><br>
+                <a href$="{{baseUrl}}webcomponents/Sam">Sam</a>
+              </paper-material>
+            </section>
+
+            <section data-route="blog-post">
+              <paper-material elevation="1">
+                <h2 class="page-title">User: {{params.name}}</h2>
+                <div>This is {{params.name}}'s section</div>
+              </paper-material>
+            </section>
+
+            <section data-route="webcomponents-component">
               <paper-material elevation="1">
                 <h2 class="page-title">User: {{params.name}}</h2>
                 <div>This is {{params.name}}'s section</div>
