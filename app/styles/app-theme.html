@@ -9,7 +9,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <style is="custom-style">
-
   /*
    Polymer includes a shim for CSS Custom Properties that we can use for application theming.
    Below, you'll find the default palette for the Polymer Starter Kit layout. Feel free to play
@@ -18,44 +17,102 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    See https://www.polymer-project.org/1.0/docs/devguide/styling.html#xscope-styling-details
    for further information on custom CSS properties.
    */
-
   /* Application theme */
 
-  :root {
+   :root {
     --dark-primary-color: #303F9F;
     --default-primary-color: #3F51B5;
     --light-primary-color: #C5CAE9;
-    --text-primary-color: #ffffff; /*text/icons*/
+    --text-primary-color: #ffffff;
+    /*text/icons*/
     --accent-color: #FF4081;
-    --primary-background-color: #c5cae9;
+    --primary-background-color: #fafafa;
+    --app-background: #f7f7f7;
     --primary-text-color: #212121;
     --secondary-text-color: #727272;
     --disabled-text-color: #bdbdbd;
     --divider-color: #B6B6B6;
 
     /* Components */
-
     /* paper-drawer-panel */
     --drawer-menu-color: #ffffff;
-    --drawer-border-color: 1px solid #ccc;
-    --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
+    --drawer-border-color: 1px solid #e5e5e5;
+    --drawer-toolbar-border-color: 1px solid #e5e5e5;
 
     /* paper-menu */
     --paper-menu-background-color: #fff;
     --menu-link-color: #111111;
   }
 
+  .left-sidebar {
+    border-right: 1px solid #e5e5e5;
+  }
   /* General styles */
 
   #drawerToolbar {
     color: var(--secondary-text-color);
     background-color: var(--drawer-menu-color);
-    border-bottom: var(--drawer-toolbar-border-color);
+    border-bottom: 0;
+  }
+
+  #drawerToolbar .paper-font-title {
+    font-weight: 400;
   }
 
   paper-scroll-header-panel {
     height: 100%;
   }
+
+  .image-sidebar {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0.5em 0;
+  }
+
+
+  #search {
+    height: 48px;
+    line-height: 48px;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  #search iron-icon {
+    margin-left: 16px;
+    margin-right: 8px;
+    position: absolute;
+    top: 12px;
+    left: 2px;
+  }
+
+  #search input {
+    height: 46px;
+    -webkit-appearance: none;
+    line-height: 46px;
+    border: 0;
+    margin: 0;
+    padding-left: 50px;
+    border-bottom: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
+    width: 100%;
+    @apply(--paper-font-body1);
+  }
+
+  #search input:focus {
+    outline: 0;
+    background-color: var(--app-background);
+    border-color: #cfd8dc;
+  }
+
+  #search input::-webkit-search-cancel-button {
+    position: relative;
+    right: 15px;
+  }
+
+  .search.active {
+    left: 15px;
+  }
+
 
   paper-material {
     border-radius: 2px;
@@ -66,39 +123,51 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     background: white;
   }
 
+  .list {
+    padding: 0;
+  }
+
   paper-menu iron-icon {
     margin-right: 33px;
     opacity: 0.54;
   }
 
-  .paper-menu > .iron-selected {
+  .paper-menu>.iron-selected {
     color: var(--default-primary-color);
   }
 
   paper-menu a {
-    @apply(--layout-horizontal);
-    @apply(--layout-center);
     text-decoration: none;
     color: var(--menu-link-color);
     font-family: 'Roboto', 'Noto', sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: 100;
     line-height: 24px;
     min-height: 48px;
     padding: 0 16px;
+    border-bottom: 1px solid #e5e5e5;
+    @apply(--layout-horizontal);
+    @apply(--layout-center);
+  }
+
+  paper-menu a:hover {
+    background-color: var(--primary-background-color);
+  }
+  paper-menu a.iron-selected {
+    background-color: var(--primary-background-color);
   }
 
   paper-toolbar.tall .app-name {
     font-size: 40px;
-    font-weight: 300;
+    font-weight: 100;
     /* Required for main area's paper-scroll-header-panel custom condensing transformation */
     -webkit-transform-origin: left center;
     transform-origin: left center;
   }
 
-  #mainToolbar .middle-container  {
+  #mainToolbar .middle-container {
     height: 100%;
     margin-left: 48px;
   }
@@ -114,8 +183,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     -webkit-transform-origin: left center;
     transform-origin: left center;
   }
-
   /* Height of the scroll area */
+
   .content {
     height: 900px;
   }
@@ -124,10 +193,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     color: #eeff41;
     margin: 10px;
   }
-
   /* Breakpoints */
-
   /* Small */
+
   @media (max-width: 600px) {
 
     paper-material {
@@ -139,16 +207,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     paper-toolbar.tall .app-name {
       font-size: 24px;
-      font-weight: 400;
+      font-weight: 100;
     }
 
     #drawer .paper-toolbar {
       margin-left: 16px;
     }
-
   }
-
   /* Tablet+ */
+
   @media (min-width: 601px) {
 
     paper-material {
@@ -158,16 +225,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       padding-right: 30px;
     }
 
-    #drawer.paper-drawer-panel > [drawer] {
-      border-right: 1px solid rgba(0, 0, 0, 0.14);
+    #drawer.paper-drawer-panel>[drawer] {
+      border-right: 1px solid #e5e5e5;
     }
 
     iron-pages {
       padding: 48px 62px;
     }
-
   }
-
   /* Material Design Adaptive Breakpoints */
   /*
     Below you'll find CSS media queries based on the breakpoint guidance
@@ -176,37 +241,53 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     http://www.google.com/design/spec/layout/adaptive-ui.html#adaptive-ui-breakpoints
    */
-
   /* mobile-small */
-  @media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) { }
+
+  @media all and (min-width: 0) and (max-width: 360px) and (orientation: portrait) {}
   /* mobile-large */
-  @media all and (min-width: 361px) and (orientation: portrait) { }
+
+  @media all and (min-width: 361px) and (orientation: portrait) {}
   /* mobile-small-landscape */
-  @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }
+
+  @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) {}
   /* mobile-large-landscape */
-  @media all and (min-width: 481px) and (orientation: landscape) { }
+
+  @media all and (min-width: 481px) and (orientation: landscape) {}
   /* tablet-small-landscape */
-  @media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) { }
+
+  @media all and (min-width: 600px) and (max-width: 960px) and (orientation: landscape) {}
   /* tablet-large-landscape */
-  @media all and (min-width: 961px) and (orientation: landscape) { }
+
+  @media all and (min-width: 961px) and (orientation: landscape) {}
   /* tablet-small */
-  @media all and (min-width: 600px) and (orientation: portrait) { }
+
+  @media all and (min-width: 600px) and (orientation: portrait) {}
   /* tablet-large */
-  @media all and (min-width: 601px) and (max-width: 840px) and (orientation : portrait) { }
+
+  @media all and (min-width: 601px) and (max-width: 840px) and (orientation: portrait) {}
   /* desktop-x-small-landscape */
-  @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) { }
+
+  @media all and (min-width: 0) and (max-width: 480px) and (orientation: landscape) {}
   /* desktop-x-small */
-  @media all and (min-width: 0) and (max-width: 480px) and (max-aspect-ratio: 4/3) { }
+
+  @media all and (min-width: 0) and (max-width: 480px) and (max-aspect-ratio: 4/3) {}
   /* desktop-small-landscape */
-  @media all and (min-width: 481px) and (max-width: 840px) and (orientation: landscape) { }
+
+  @media all and (min-width: 481px) and (max-width: 840px) and (orientation: landscape) {}
   /* desktop-small */
-  @media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3) { }
+
+  @media all and (min-width: 481px) and (max-width: 840px) and (max-aspect-ratio: 4/3) {}
   /* desktop-medium-landscape */
-  @media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) { }
+
+  @media all and (min-width: 841px) and (max-width: 1280px) and (orientation: landscape) {}
   /* desktop-medium */
-  @media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) { }
+
+  @media all and (min-width: 841px) and (max-width: 1280px) and (max-aspect-ratio: 4/3) {}
   /* desktop-large */
-  @media all and (min-width: 1281px) and (max-width: 1600px) { }
+
+  @media all and (min-width: 1281px) and (max-width: 1600px) {}
   /* desktop-xlarge */
-  @media all and (min-width: 1601px) and (max-width: 1920px) { }
+
+  @media all and (min-width: 1601px) and (max-width: 1920px) {}
+
 </style>
