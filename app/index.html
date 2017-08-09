@@ -9,11 +9,11 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<html lang="">
+<html lang="es">
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="">
+  <meta name="description" content="Desarrollador front end de aplicaciones web. Esta es mi página personal, Aquí encontrarás HTML5, CSS3, Javascript, Polymer y Angular,">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="ADominguez" />
   <title>Página personal de Alberto Dominguez, desarrollador front end</title>
@@ -78,7 +78,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Toolbar -->
         <paper-toolbar id="drawerToolbar">
-          <span class="paper-font-title">Menu</span>
+          <img src="./images/branding/small-logo.png" /> <span class="paper-font-title"> adominguez</span>
         </paper-toolbar>
 
         <div id="search" class="layout horizontal center">
@@ -92,32 +92,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
           <a data-route="inicio" href="{{baseUrl}}">
-            <iron-icon icon="home"></iron-icon>
+            <iron-icon icon="vaadin:home-o"></iron-icon>
             <span>Inicio</span>
           </a>
 
           <a data-route="mi-historia" href="mi-historia">
-            <iron-icon icon="mail"></iron-icon>
+            <iron-icon icon="vaadin:comment-ellipsis-o"></iron-icon>
             <span>Mi historia</span>
           </a>
 
           <a data-route="curriculum" href="curriculum">
-            <iron-icon icon="mail"></iron-icon>
+            <iron-icon icon="vaadin:clipboard-user"></iron-icon>
             <span>Curriculum</span>
           </a>
 
           <a data-route="blog" href="blog">
-            <iron-icon icon="info"></iron-icon>
+            <iron-icon icon="vaadin:pin-post"></iron-icon>
             <span>Blog</span>
           </a>
 
           <a data-route="webcomponents" href="webcomponents">
-            <iron-icon icon="info"></iron-icon>
+            <iron-icon icon="vaadin:cluster"></iron-icon>
             <span>Webcomponents</span>
           </a>
 
           <a data-route="contact" href="contact">
-            <iron-icon icon="mail"></iron-icon>
+            <iron-icon icon="vaadin:envelope-open-o"></iron-icon>
             <span>Contact</span>
           </a>
         </paper-menu>
@@ -126,14 +126,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Main Area -->
       <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
 
+
         <!-- Main Toolbar -->
         <paper-toolbar id="mainToolbar" class="tall">
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
           <span class="flex"></span>
 
           <!-- Toolbar icons -->
-          <paper-icon-button icon="refresh"></paper-icon-button>
-          <paper-icon-button icon="search"></paper-icon-button>
+          <github-link href="https://github.com/adominguez" height="18px" color="#666"></github-link>
+          <linkedin-link href="https://www.linkedin.com/in/albertodominguezmartin/" height="18px" color="#666"></linkedin-link>
+          <twitter-link href="https://www.twitter.com/@ADominguezes" height="18px" color="#666"></twitter-link>
 
           <!-- Application name -->
           <div class="middle middle-container center horizontal layout">
@@ -159,7 +161,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <my-list></my-list>
 
                 <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a>                  collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them
-                  live.</p>
+                  live.
+                </p>
               </paper-material>
               <paper-material elevation="1">
                 <p class="paper-font-body2">This is another card.</p>
@@ -193,10 +196,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
 
             <section data-route="mi-historia">
-              <paper-material elevation="1">
-                <h2 class="page-title">Mi historia</h2>
-                <p>This is story</p>
-              </paper-material>
+              <app-page responsive fade-in>
+                <div slot="left-content">
+                  content
+                  </curriculum-page>
+                </div>
+              </app-page>
             </section>
 
             <section data-route="curriculum">

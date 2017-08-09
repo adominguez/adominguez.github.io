@@ -30,6 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     --app-background: #f7f7f7;
     --primary-text-color: #212121;
     --secondary-text-color: #727272;
+    --basic-text-color: #666;
     --disabled-text-color: #bdbdbd;
     --divider-color: #B6B6B6;
 
@@ -52,11 +53,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   #drawerToolbar {
     color: var(--secondary-text-color);
     background-color: var(--drawer-menu-color);
-    border-bottom: 0;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #drawerToolbar .paper-font-title {
     font-weight: 400;
+    padding-left: 10px;
+    font-size: 24px;
   }
 
   paper-scroll-header-panel {
@@ -93,7 +99,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     margin: 0;
     padding-left: 50px;
     border-bottom: 1px solid #e5e5e5;
-    border-top: 1px solid #e5e5e5;
     width: 100%;
     @apply(--paper-font-body1);
   }
@@ -113,7 +118,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     left: 15px;
   }
 
-
+/* PARA ELIMINAR PAPER-MATERIAL*/
   paper-material {
     border-radius: 2px;
     height: 100%;
@@ -122,7 +127,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     margin: 16px auto;
     background: white;
   }
-
+/* PARA ELIMINAR LIST*/
   .list {
     padding: 0;
   }
@@ -152,9 +157,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     @apply(--layout-center);
   }
 
+  paper-menu {
+    --paper-menu-focused-item: {
+      background-color: var(--primary-background-color);
+    }
+    --paper-menu-focused-item-after: {
+      background-color: var(--primary-background-color);
+    }
+  }
+
   paper-menu a:hover {
     background-color: var(--primary-background-color);
   }
+
   paper-menu a.iron-selected {
     background-color: var(--primary-background-color);
   }
@@ -165,6 +180,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /* Required for main area's paper-scroll-header-panel custom condensing transformation */
     -webkit-transform-origin: left center;
     transform-origin: left center;
+  }
+
+  #mainToolbar {
+    background: var(--primary-background-color);
+    color: var(--basic-text-color);
+    box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;
   }
 
   #mainToolbar .middle-container {
@@ -227,10 +249,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     #drawer.paper-drawer-panel>[drawer] {
       border-right: 1px solid #e5e5e5;
-    }
-
-    iron-pages {
-      padding: 48px 62px;
     }
   }
   /* Material Design Adaptive Breakpoints */
