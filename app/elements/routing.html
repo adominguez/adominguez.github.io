@@ -39,41 +39,59 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     page('/', function() {
       app.route = 'inicio';
+      app.heading = 'Adominguez';
+      app.subheading = 'Bienvenido a mi espacio personal, soy Alberto Dominguez desarrollador de aplicaciones web front-end';
     });
 
     page(app.baseUrl, function() {
       app.route = 'inicio';
+      app.heading = 'Adominguez';
+      app.subheading = 'Bienvenido a mi espacio personal, soy Alberto Dominguez desarrollador de aplicaciones web front-end';
     });
 
     page('/mi-historia', function() {
       app.route = 'mi-historia';
+      app.heading = 'Mi historia';
+      app.subheading = 'Mi historia subheading';
     });
 
     page('/curriculum', function() {
       app.route = 'curriculum';
+      app.heading = 'Curriculum';
+      app.subheading = 'curriculum subheading';
     });
 
     page('/webcomponents', function() {
       app.route = 'webcomponents';
+      app.heading = 'Webcomponents';
+      app.subheading = 'webcomponents subheading';
     });
 
     page('/blog/:name', function(data) {
       app.route = 'blog-post';
       app.params = data.params;
+      app.heading = 'Blog';
+      app.subheading = 'blog subheading';
     });
 
     page('/webcomponents/:name', function(data) {
       app.route = 'webcomponents-component';
       app.params = data.params;
+      app.heading = data.params.name;
+      app.subheading = 'webcomponents subheading';
     });
 
     page('/blog', function() {
       app.route = 'blog';
+      app.heading = 'blog';
+      app.subheading = 'blog subheading';
     });
 
     page('/blog/:name', function(data) {
       app.route = 'user-info';
       app.params = data.params;
+      app.heading = data.params.name;
+      app.subheading = 'blog subheading';
     });
 
     page('/contact', function() {

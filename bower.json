@@ -9,7 +9,7 @@
     "paper-elements": "PolymerElements/paper-elements#^1.0.1",
     "platinum-elements": "PolymerElements/platinum-elements#^1.1.0",
     "paper-menu": "PolymerElements/paper-menu#4fecb43601",
-    "app-page": "https://github.com/ADominguezes/app-page.git",
+    "app-page": "https://github.com/adominguez/app-page.git",
     "vaadin-icons": "vaadin/vaadin-icons#^4.1.0",
     "social-links": "convoo/social-links#^0.0.2"
   },
