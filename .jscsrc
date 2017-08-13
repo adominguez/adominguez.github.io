@@ -2,6 +2,6 @@
   "preset": "google",
   "disallowSpacesInAnonymousFunctionExpression": null,
   "disallowTrailingWhitespace": null,
-  "maximumLineLength": 120,
+  "maximumLineLength": null,
   "excludeFiles": ["node_modules/**"]
 }
