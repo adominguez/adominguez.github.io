@@ -117,8 +117,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   .search.active {
     left: 15px;
   }
+  /* PARA ELIMINAR PAPER-MATERIAL*/
 
-/* PARA ELIMINAR PAPER-MATERIAL*/
   paper-material {
     border-radius: 2px;
     height: 100%;
@@ -127,7 +127,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     margin: 16px auto;
     background: white;
   }
-/* PARA ELIMINAR LIST*/
+  /* PARA ELIMINAR LIST*/
+
   .list {
     padding: 0;
   }
@@ -180,6 +181,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /* Required for main area's paper-scroll-header-panel custom condensing transformation */
     -webkit-transform-origin: left center;
     transform-origin: left center;
+    color: var(--primary-text-color);
+    margin: 0;
+  }
+
+  .bottom-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: lighter;
+    color: var(--basic-text-color);
+    transform: translateY(-10px);
+  }
+
+  iron-pages {
+    padding: 0em 0em 0 2em;
   }
 
   #mainToolbar {
