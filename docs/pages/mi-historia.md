@@ -1,5 +1,3 @@
-<card>
-
 ### ¿Quién eres?
 
 Hola, mi nombre es __Alberto Dominguez Martin__, Bienvenido a mi espacio personal, espero que estés disfrutando navegando por ella.
@@ -27,5 +25,3 @@ Me considero una persona __dedicada__ y __responsable__, buen trabajador, y __me
 En mi trabajo intento ser __creativo__ y __eficaz__, dado que en innumerables ocasiones he tenido que realizar cosas por mi cuenta, tengo __capacidad de autoaprendizaje__, además aprendo rápido y tengo __buena disposición a comenzar nuevos proyectos__.
 
 Constantemente estoy aprendiendo cosas nuevas que pueda aplicar tanto en mi ámbito personal como en el profesional.
-
-</card>
