@@ -1,0 +1,79 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../zero-md/zero-md.html">
+<link rel="import" href="app-page-styles.html">
+<link rel="stylesheet" href="../zero-md/highlight-themes/default.css">
+<link rel="stylesheet" href="../zero-md/markdown-themes/default.css">
+
+<!--
+`app-page`
+This component shows a structure of page with the possibility of add a markdown file inside
+
+__Example__
+
+```html
+<app-page title-page="blog" subtitle-page="Marked publications" fade-in></app-page>
+```
+
+__markdown file Example__
+
+```html
+<app-page readme="https://raw.githubusercontent.com/PolymerElements/polymer-starter-kit/master/README.md" title-page="blog" subtitle-page="Marked publications" fade-in></app-page>
+```
+
+__Responsive example__
+
+```html
+<app-page title-page="Contact" subtitle-page="contact with us" responsive fade-in></app-page>
+```
+
+## Styling
+The following custom properties and mixins are available for styling:
+Custom property                           | Description                                         | Default       |
+------------------------------------------|-----------------------------------------------------|---------------|
+--app-header-bg-color                     | background color for host                           | transparent   |
+--app-header                              | empty mixin for host                                | {}            |
+--app-header-panel-left-color             | color for panel-left                                | #666          |
+--app-header-panel-left                   | empty mixin for panel-left                          | {}            |
+--app-header-title-color                  | color for title                                     | #212121       |
+--app-header-title                        | empty mixin for title                               | {}            |
+--app-header-subtitle-color               | color for subtitle                                  | #666          |
+--app-header-subtitle                     | empty mixin for sutitle                             | {}            |
+--app-header-title-left-content           | empty mixin for left content                        | {}            |
+--app-header-panel-right-color            | color for panel right                               | #666          |
+--app-page-panel-right-b-l                | border left for panel-right                         | #e5e5e5       |
+--app-page-panel-right                    | empty mixin for panel-right                         | {}            |
+--app-header-title-right-content          | empty mixin for right-content                       | {}            |
+--app-header-hide-panel-right             | empty mixin for host([hide-panel-right])            | {}            |
+--app-header-hide-panel-right-panel-left  | empty mixin for host([hide-panel-right]) panel-left | {}            |
+--app-header-responsive                   | empty mixin for host([responsive])                  | {}            |
+--app-header-responsive-panel-left        | empty mixin for host([responsive]) panel-left       | {}            |
+--app-page-responsive-panel-right-b-t     | border top for host([hide-panel-right]) panel-right | #e5e5e5       |
+--app-page-panel-right-bg-color           | background for host([hide-panel-right]) panel-right | #fff          |
+--app-header-hide-panel-right-panel-left  | empty mixin for host([hide-panel-right]) panel-left | {}            |
+--app-header-responsive-panel-right       | empty mixin for host([responsive]) panel-right      | {}            |
+
+@demo demo/index.html
+-->
+
+<dom-module id="app-page">
+  <style include="app-page-styles app-page-shared-styles"></style>
+  <template is="dom-bind" id="component0">
+    <div class="panel-left">
+      <h1 class="panel-left__title" hidden$="[[!titlePage]]">[[titlePage]]</h1>
+      <h2 class="panel-left__subtitle" hidden$="[[!subtitlePage]]">[[subtitlePage]]</h2>
+      <div class="panel-left__left-content">
+        <slot name="left-content">
+          <zero-md file="{{readme}}" hidden$="[[!readme]]">
+            <div class="md-html"></div>
+          </zero-md>
+        </slot>
+      </div>
+    </div>
+    <div class="panel-right" hidden$="[[hidePanelRight]]">
+      <div class="panel-right__right-content">
+        <slot name="right-content">right content</slot>
+      </div>
+    </div>
+  </template>
+  <script src="app-page.js"></script>
+</dom-module>

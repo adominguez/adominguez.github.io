@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>app-page demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script>
+    window.Polymer = {
+      dom: 'shadow',
+      lazyRegister: 'true',
+      useNativeCSSProperties: 'true'
+    }
+
+  </script>
+
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../../adom-demo/adom-demo.html">
+  <link rel="import" href="../app-page.html">
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+    /*Common styles*/
+
+    demo-snippet {
+      --demo-snippet-demo: {
+        display: block;
+      };
+    }
+
+  </style>
+</head>
+
+<body>
+  <adom-demo id="demo" option-selected="0">
+    <demo-snippet id="view0" data-heading="Basic app-header">
+      <template is="dom-bind">
+        <app-page readme="https://raw.githubusercontent.com/adominguez/app-page/master/demo/FILE.md"></app-page>
+      </template>
+    </demo-snippet>
+    <demo-snippet id="view1" data-heading="With title and subtitle" data-description="using the properties 'title-page' and 'subtitle-page'">
+      <template is="dom-bind">
+        <app-page readme="https://raw.githubusercontent.com/PolymerElements/polymer-starter-kit/master/README.md" title-page="blog"
+          subtitle-page="Marked publications" fade-in></app-page>
+      </template>
+    </demo-snippet>
+    <demo-snippet id="view2" data-heading="without panel right" data-description="if use the property hide-panel-right is possible hide right panel">
+      <template is="dom-bind">
+        <app-page title-page="About us" subtitle-page="we are a great company" hide-panel-right fade-in>
+          <div slot="left-content">
+            Here goes content.
+          </div>
+        </app-page>
+      </template>
+    </demo-snippet>
+    <demo-snippet id="view3" data-heading="responsive" data-description="this component is responsive in 770px">
+      <template is="dom-bind">
+        <app-page title-page="Contact" subtitle-page="contact with us" responsive fade-in>
+          <div slot="left-content">
+            Here goes content.
+          </div>
+        </app-page>
+      </template>
+    </demo-snippet>
+  </adom-demo>
+</body>
+
+</html>

@@ -20,6 +20,7 @@
     --app-background: #f7f7f7;
     --primary-text-color: #212121;
     --secondary-text-color: #727272;
+    --basic-text-color: #666;
     --disabled-text-color: #bdbdbd;
     --divider-color: #B6B6B6;
 
@@ -42,11 +43,16 @@
   #drawerToolbar {
     color: var(--secondary-text-color);
     background-color: var(--drawer-menu-color);
-    border-bottom: 0;
+    border-bottom: 1px solid #e5e5e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   #drawerToolbar .paper-font-title {
     font-weight: 400;
+    padding-left: 10px;
+    font-size: 24px;
   }
 
   paper-scroll-header-panel {
@@ -83,7 +89,6 @@
     margin: 0;
     padding-left: 50px;
     border-bottom: 1px solid #e5e5e5;
-    border-top: 1px solid #e5e5e5;
     width: 100%;
     @apply(--paper-font-body1);
   }
@@ -102,7 +107,7 @@
   .search.active {
     left: 15px;
   }
-
+  /* PARA ELIMINAR PAPER-MATERIAL*/
 
   paper-material {
     border-radius: 2px;
@@ -112,6 +117,7 @@
     margin: 16px auto;
     background: white;
   }
+  /* PARA ELIMINAR LIST*/
 
   .list {
     padding: 0;
@@ -142,9 +148,19 @@
     @apply(--layout-center);
   }
 
+  paper-menu {
+    --paper-menu-focused-item: {
+      background-color: var(--primary-background-color);
+    }
+    --paper-menu-focused-item-after: {
+      background-color: var(--primary-background-color);
+    }
+  }
+
   paper-menu a:hover {
     background-color: var(--primary-background-color);
   }
+
   paper-menu a.iron-selected {
     background-color: var(--primary-background-color);
   }
@@ -155,6 +171,27 @@
     /* Required for main area's paper-scroll-header-panel custom condensing transformation */
     -webkit-transform-origin: left center;
     transform-origin: left center;
+    color: var(--primary-text-color);
+    margin: 0;
+  }
+
+  .bottom-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: lighter;
+    color: var(--basic-text-color);
+    transform: translateY(-10px);
+  }
+
+  iron-pages {
+    padding: 0em 0em 0 2em;
+  }
+
+  #mainToolbar {
+    background: var(--primary-background-color);
+    color: var(--basic-text-color);
+    box-sizing: border-box;
+    border-bottom: 1px solid #e5e5e5;
   }
 
   #mainToolbar .middle-container {
@@ -217,10 +254,6 @@
 
     #drawer.paper-drawer-panel>[drawer] {
       border-right: 1px solid #e5e5e5;
-    }
-
-    iron-pages {
-      padding: 48px 62px;
     }
   }
   /* Material Design Adaptive Breakpoints */
