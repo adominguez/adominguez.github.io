@@ -21,15 +21,17 @@
     "**/.*",
     "node_modules",
     "bower_components",
+    "package-lock.json",
     "test"
   ],
   "dependencies": {
     "polymer": "^2.0.0",
     "iron-icon": "^2.0.0",
-    "iron-iconset-svg": "^2.0.0"
+    "iron-iconset-svg": "^2.0.0",
+    "vaadin-demo-helpers": "^1.0.0"
   },
   "devDependencies": {
-    "iron-component-page": "^2.0.0",
+    "iron-component-page": "^3.0.0",
     "iron-meta": "^2.0.0",
     "elements-demo-resources": "^2.0.0"
   },

@@ -12,181 +12,188 @@
   display: none;
 }
 
+
+
+h1 {
+  font-size: 40px;
+  font-weight: 100;
+  color: var(--app-page-first-color, #212121);
+  @apply --app-page-h1;
+}
+
+h2 {
+  color: var(--app-page-second-color, #666);
+  font-weight: 100;
+  font-size: 24px;
+  @apply --app-page-h2;
+}
+h3 {
+  color: var(--app-page-first-color, #212121);
+  font-size: 18px;
+  font-weight: bolder;
+  @apply --app-page-h3;
+}
+h4 {
+  color: var(--app-page-second-color, #666);
+  font-size: 14px;
+  font-weight: bolder;
+  @apply --app-page-h4;
+}
+h5 {
+  color: var(--app-page-second-color, #666);
+  font-size: 12px;
+  font-weight: 100;
+  @apply --app-page-h5;
+}
+h6 {
+  color: var(--app-page-second-color, #666);
+  font-size: 10px;
+  font-weight: 100;
+  @apply --app-page-h6;
+}
+p {
+  color: var(--app-page-second-color, #666);
+  font-size: 14px;
+  font-weight: 100;
+  @apply --app-page-p;
+}
+blockquote {
+  background: var(--app-page-blockquote-bg-color, #eeeeee);
+  padding: 0.5em 1em;
+  box-sizing: border-box;
+  display: inline-block;
+  border-left: 5px solid var(--app-page-first-color, #212121);
+  @apply --app-page-blockquote;
+}
+blockquote p{
+  margin: 0;
+  @apply --app-page-blockquote-p;
+}
+code {
+  background: var(--app-page-blockquote-bg-color, #f7f7f7);
+  padding: 0.2em;
+  border-radius: 5px;
+  @apply --app-page-code;
+}
+ul, ol {
+  color: var(--app-page-second-color, #666);
+  font-weight: 100;
+  @apply --app-page-list;
+  li {
+    color: var(--app-page-second-color, #666);
+    padding: 0.5em 0;
+    @apply --app-page-list-li;
+  }
+}
+a {
+  color: var(--app-page-link-color, #FF4081);
+  text-decoration: none;
+  @apply --app-page-link;
+}
+a:hover {
+  color: var(--app-page-link-hover-color, #212121);
+  text-decoration: none;
+  @apply --app-page-link-hover;
+}
+a:visited {
+  text-decoration: underline;
+  @apply --app-page-link-visited;
+}
+
+hr {
+  border-color: var(--app-page-blockquote-bg-color, #f7f7f7);
+}
+card {
+  display: block;
+  padding: 1em;
+  background-color: var(--app-page-white-bg-color, #fff);
+  border-radius: 2px;
+  margin: 0 16px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  @apply --app-page-card;
+}
+
 :host {
   display: flex;
   position: relative;
   flex-direction: row;
   box-sizing: border-box;
-  background-color: var(--app-header-bg-color, transparent);
-  @apply(--app-header);
+  background-color: var(--app-page-bg-color, #fafafa);
+  padding: 0em;
+  @apply --app-page;
   .panel-left {
-    color: var(--app-header-panel-left-color, #666);
-    font-weight: lighter;
-    padding: 1em;
+    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 1em 2em;
     box-sizing: border-box;
-    width: calc(100% - 200px);
-    @apply(--app-header-panel-left);
+    width: calc(100% - var(--app-page-panel-right-width, 200px));
+    @apply --app-page-panel-left;
     &__title {
-      font-weight: lighter;
-      color: var(--app-header-title-color, #212121);
-      font-size: 22px;
       margin: 0;
       text-transform: capitalize;
-      @apply(--app-header-title);
+      @apply --app-page-title;
     }
     &__subtitle {
-      font-weight: lighter;
       margin: 0;
-      color: var(--app-header-subtitle-color, #666);
-      font-size: 18px;
-      @apply(--app-header-subtitle);
+      @apply --app-page-subtitle;
     }
     &__left-content {
-      padding: 2em 0;
-      @apply(--app-header-title-left-content);
+      padding: 1em 0;
+      @apply --app-page-title-left-content;
+      &__left-content-down {
+        padding: 2em 0;
+      }
     }
   }
   .panel-right {
-    color: var(--app-header-panel-right-color, #666);
-    width: 200px;
-    border-left: 1px solid var(--app-page-panel-right-b-l, #e5e5e5);
+    width: var(--app-page-panel-right-width, 200px);
+    border-left: 1px solid var(--app-page-panel-right-b-l-color, #e5e5e5);
     position: absolute;
     padding: 1em;
     right: 0;
     height: 100%;
     background-color: var(--app-page-panel-right-bg-color, #fff);
     box-sizing: border-box;
-    @apply(--app-page-panel-right);
+    @apply --app-page-panel-right;
     &__right-content {
-      @apply(--app-header-title-right-content);
+      @apply --app-page-title-right-content;
     }
   }
 }
 
 :host([hide-panel-right]) {
   display: block;
-  @apply(--app-header-hide-panel-right);
+  @apply --app-page-hide-panel-right;
   .panel-left {
     width: 100%;
-    @apply(--app-header-hide-panel-right-panel-left);
+    @apply --app-page-hide-panel-right-panel-left;
   }
 }
 
 @media(max-width: 960px) {
    :host([responsive]) {
     display: block;
-    @apply(--app-header-responsive);
+    @apply --app-page-responsive;
     .panel-left {
       width: 100%;
-      @apply(--app-header-responsive-panel-left);
+      @apply --app-page-responsive-panel-left;
     }
     .panel-right {
       position: relative;
       border-left: 0;
-      border-top: 1px solid var(--app-page-responsive-panel-right-b-t, #e5e5e5);
+      border-top: 1px solid var(--app-page-responsive-panel-right-b-t-color, #e5e5e5);
       width: 100%;
-      @apply(--app-header-responsive-panel-right);
+      @apply --app-page-responsive-panel-right;
     }
   }
 }
 
 .md-html {
-  & h1 {
-    color: #212121;
-    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 40px;
-    font-weight: 100;
-  }
-  & h2 {
-    color: #666;
-    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 24px;
-    font-weight: 100;
-  }
-  & h3 {
-    color: #212121;
-    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    font-weight: bolder;
-  }
-  & h4 {
-    color: #666;
-    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 100;
-  }
-  & h5 {
-    color: #666;
-    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    font-weight: 100;
-  }
-  & h6 {
-    color: #666;
-    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 10px;
-    font-weight: 100;
-  }
-  & p {
-    color: #666;
-    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 100;
-  }
-  & blockquote {
-    color: #666;
-    background: #e5e5e5;
-    padding: 0.5em 1em;
-    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 100;
-    box-sizing: border-box;
-    border-left: 5px solid #666;
-  }
-  & blockquote p{
-     margin: 0;
-  }
-  & code {
-    background: #e5e5e5;
-    padding: 0.2em;
-    border-radius: 5px;
-  }
-  & ul, & ol {
-    font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 100;
-    & li {
-      padding: 0.5em 0;
-    }
-  }
-  a {
-    color: #8BC34A;
-    text-decoration: none;
-  }
-  a:hover {
-    color: #212121;
-    text-decoration: none;
-  }
-  a:visited {
-    color: #FF4081;
-    text-decoration: underline
-  }
-  hr {
-    border-color: #fafafa;
-  }
-  card {
-    display: block;
-    padding: 1em;
-    background-color: white;
-    border-radius: 2px;
-    margin: 0 16px;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
-  }
   & pre{
     padding: 16px;
     overflow: auto;
     font-size: 85%;
     line-height: 1.45;
-    background-color: #f7f7f7;
+    background: var(--app-page-blockquote-bg-color, #eeeeee);
     border-radius: 3px;
   }
   & pre code {

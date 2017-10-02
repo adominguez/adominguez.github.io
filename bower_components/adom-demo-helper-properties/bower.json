@@ -1,0 +1,33 @@
+{
+  "name": "adom-demo-helper-properties",
+  "version": "0.1.0",
+  "description": "adom-demo-helper-properties is a component created for to be used in other demo components",
+  "main": "adom-demo-helper-properties.html",
+  "keywords": [
+    "demo",
+    "properties"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.8.0",
+    "paper-tabs": "PolymerElements/paper-tabs#^1.8.0",
+    "iron-pages": "PolymerElements/iron-pages#^1.0.9",
+    "paper-toast": "PolymerElements/paper-toast#^2.0.0",
+    "paper-swatch-picker": "PolymerElements/paper-swatch-picker#^2.0.0",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^2.0.0",
+    "paper-listbox": "PolymerElements/paper-listbox#^2.0.0",
+    "paper-item": "PolymerElements/paper-item#^2.0.0",
+    "paper-input": "PolymerElements/paper-input#^2.0.1",
+    "adom-demo-marked": "adominguez/adom-demo-marked",
+    "paper-toggle-button": "PolymerElements/paper-toggle-button#^2.0.0",
+    "vaadin-icons": "vaadin/vaadin-icons#^4.1.2"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
+    "adom-card-color": "adominguez/adom-card-color.git"
+  },
+  "resolutions": {
+    "webcomponentsjs": "^0.7.0"
+  }
+}

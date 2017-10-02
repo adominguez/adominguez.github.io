@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="adom-card-color-styles.html">
+
+<!--
+`adom-card-color`
+This component shows a box with information inside
+
+@demo demo/index.html
+-->
+
+<dom-module id="adom-card-color">
+  <style include="adom-card-color-styles adom-card-color-shared-styles"></style>
+  <template>
+    <div class="header">
+      <slot name="card-header">
+        <iron-icon class="header__icon" icon="[[icon]]" hidden="[[!icon]]"></iron-icon>
+        <div id="heading" class="header__heading" aria-level$="[[ariaHeadingLevel]]">
+          [[heading]]
+        </div>
+      </slot>
+    </div>
+    <div class="body">
+      <slot name="card-body">
+        <div class="body__counter">
+          [[counter]] [[units]]
+        </div>
+        <div class="body__description">
+          [[description]]
+        </div>
+      </slot>
+    </div>
+
+  </template>
+  <script src="adom-card-color.js"></script>
+</dom-module>

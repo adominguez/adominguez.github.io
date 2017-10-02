@@ -1,0 +1,71 @@
+:host([hidden]) {
+  display: none;
+}
+
+:host {
+  display: block;
+  box-sizing: border-box;
+  background-color: var(--adom-card-color-bg-color, #00ff00);
+  color: var(--adom-card-color-color, #fff);
+  border: 1px solid #d7dfe3;
+  border-radius: 4px;
+  position: relative;
+  @apply --adom-card-color;
+}
+
+.header {
+  display: flex;
+  padding: 1.25em;
+  @apply --adom-card-color-header;
+  &__icon {
+    margin-right: 20px;
+    align-self: center;
+    --iron-icon-height: var(--adom-card-color-header-icon, 64px);
+    --iron-icon-width: var(--adom-card-color-header-icon, 64px);
+    @apply --adom-card-color-header-icon;
+  }
+  &__heading {
+    padding-top: 10px;
+    font-size: 22px;
+    @apply --adom-card-color-header-heading;
+  }
+}
+
+.body {
+  display: flex;
+  padding: 1.25em;
+  font-weight: lighter;
+  @apply --adom-card-color-body;
+  &__counter {
+    font-size: 22px;
+    min-width: var(--adom-card-color-body-counter-width, 200px);
+    @apply --adom-card-color-body-counter;
+  }
+  &__description {
+    width: calc(100% - var(--adom-card-color-body-counter-width, 200px));
+  }
+}
+
+:host([collapsed]) {
+  .body {
+    position: absolute;
+    top: 0;
+    margin-left: 85px;
+    max-height: 50px;
+    overflow: hidden;
+    width: 100%;
+    @apply --adom-card-color-body-collapsed;
+    &__counter {
+      transform: translate(0, 37px);
+      min-width: 115px;
+      font-size: 14px;
+      font-weight: lighter;
+      height: 40px;
+      color: rgba(255, 255, 255, 0.65);
+      @apply --adom-card-color-body-collapsed-counter;
+    }
+    &__description {
+      width: calc(100% - var(--adom-card-color-body-counter-width, 200px));
+    }
+  }
+}

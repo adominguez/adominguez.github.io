@@ -1,0 +1,88 @@
+:host([hidden]) {
+  display: none;
+}
+
+:host {
+  display: block;
+  box-sizing: border-box;
+  font-family: 'Roboto', 'Noto', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  padding: 24px;
+  background-color: #fafafa;
+  @apply(--adom-demo-helper-properties);
+}
+
+.toastContent {
+  padding:0.5em 0 0.5em 0;
+  color: var(--adom-demo-helper-properties-toast-content-color, green);
+}
+
+.tabs {
+  background-color: #fff;
+  padding: 0.5em;
+  box-shadow: var(--shadow-elevation-2dp_-_box-shadow);
+}
+.selected {
+  margin: 1em;
+}
+paper-tabs {
+  --paper-tabs-selection-bar-color: #121212;
+}
+iron-icon {
+  padding-right: 0.5em;
+}
+paper-textarea {
+  width: 100%;
+}
+
+.contentPage {
+  margin: 1em;
+  @apply(--adom-demo-helper-properties-content-page);
+  &__info {
+    margin-bottom: 1em;
+    @apply(--adom-demo-helper-properties-content-page-info);
+    &__heading {
+      color: #121212;
+      text-transform: capitalize;
+      font-size: 40px;
+      font-weight: 100;
+      @apply(--adom-demo-helper-properties-content-page-info-heading);
+    }
+    &__description {
+      color: #666;
+      font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 100;
+      @apply(--adom-demo-helper-properties-content-page-info-description);
+    }
+  }
+  &__properties {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: lighter;
+    & h3 {
+      color: #212121;
+      font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: bolder;
+    }
+  }
+  &__properties paper-input {
+    margin-right: 20px;
+  }
+
+  paper-listbox {
+    width: 206px;
+  }
+  paper-item {
+    padding: 0.5em;
+  }
+  paper-dropdown-menu {
+    display: block;
+    margin-right: 20px;
+  }
+}
+
+
+

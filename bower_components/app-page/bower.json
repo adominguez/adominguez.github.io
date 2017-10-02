@@ -13,9 +13,9 @@
     "zero-md": "zerodevx/zero-md"
   },
   "devDependencies": {
-    "adom-demo": "https://github.com/ADominguezes/adom-demo.git#^1.0.1",
+    "adom-demo-helper-properties": "https://github.com/adominguez/adom-demo-helper-properties.git",
+    "adom-demo-marked": "https://github.com/adominguez/adom-demo-marked.git",
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
     "web-component-tester": "Polymer/web-component-tester#^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
   }

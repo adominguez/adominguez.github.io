@@ -1,0 +1,220 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-tabs/paper-tabs.html">
+<link rel="import" href="../paper-tabs/paper-tab.html">
+<link rel="import" href="../iron-pages/iron-pages.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../vaadin-icons/vaadin-icons.html">
+<link rel="import" href="../paper-toast/paper-toast.html">
+<link rel="import" href="../paper-swatch-picker/paper-swatch-picker.html">
+<link rel="import" href="../paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-input/paper-textarea.html">
+<link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="adom-demo-helper-properties-styles.html">
+
+<!--
+`adom-demo-helper-properties`
+Is a component created for to be used in other demo components with properties
+
+## Structure
+
+With this component you can see your component demo and change his properties and his css var for show the result of component.
+
+__example__
+
+```html
+<adom-demo-helper-properties id="view0" toast-events='["click-navigation-button"]' component-name="adom-card-color" properties-setted='[{"label": "color", "value": "#65a5f2", "color": "#65a5f2"}, {"label": "heading", "value": "title"}, {"label": "counter", "value": "4", "type": "number"}, {"label": "units", "value": "components"}, {"label": "icon", "selected": "0", "list": [{"value":"icons:view-module"}, {"value": "icons:view-carousel"}, {"value": "icons:touch-app"}, {"value": "icons:today"}]}, {"label": "reverse", "selected": "1", "list": [{"value": "false"}, {"value": "true"}]}]'>
+  <adom-demo-marked>
+  </demo-snippet>
+</adom-demo-helper-properties>
+```
+
+## Properties
+
+With the `properties-setted` property of cells-demo-helper-properties you can create an array with the properties of the component you want. You can see a complete example here:
+
+```json
+[{"label": "color", "value": "#65a5f2", "color": "#65a5f2"}, {"label": "heading", "value": "title"}, {"label": "counter", "value": "4", "type": "number"}, {"label": "units", "value": "components"}, {"label": "icon", "selected": "0", "list": [{"value":"icons:view-module"}, {"value": "icons:view-carousel"}, {"value": "icons:touch-app"}, {"value": "icons:today"}]}, {"label": "reverse", "selected": "1", "list": [{"value": "false"}, {"value": "true"}]}]
+```
+
+You can add diferents types of items:
+
+### Use example input
+
+```json
+{"label": "heading", "value": "title", "type": "text"}
+```
+
+### Use example color
+
+```json
+{"label": "color", "value": "#65a5f2", "color": "#65a5f2"}
+```
+
+### Use example number
+
+```json
+{"label": "counter", "value": "4", "type": "number"}
+```
+
+### Use example select
+
+```json
+{"label": "icon", "selected": "0", "list": [{"value":"icons:view-module"}, {"value": "icons:view-carousel"}, {"value": "icons:touch-app"}, {"value": "icons:today"}]}
+```
+
+## css vars
+
+Use the css vars contened in the file of component `component-name-styles.html`.
+
+Map all the variables found in the file and display them in the demo.
+
+The correct way to use the variables is as follows:
+
+```scss
+.my-class {
+  display: block;
+  box-sizing: border-box;
+  background-color: var(--adom-card-color-bg-color, #00ff00);
+  border-radius: var(--adom-card-color-border, 3px);
+}
+```
+
+`var(--adom-card-color-bg-color, #00ff00);`
+`border-radius: var(--adom-card-color-border, 3px);`
+
+For show a Paint pot in the demo the end of the name of css var must be `color`.
+
+## Events
+
+With the property `toastEvents` it´s possible add all events of component, and show a toast when the event is listener.
+
+```json
+["one-event", "two-event"]
+```
+
+## Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property                           | Description                                             | Default  |
+------------------------------------------|---------------------------------------------------------|----------|
+--adom-demo-helper-properties                               | mixin for host                                          | {}       |
+--adom-demo-helper-properties-toast-content-color           | color for contentColor                                  | green    |
+--adom-demo-helper-properties-content-page                  | mixin for .contentPage class                            | {}       |
+--adom-demo-helper-properties-content-page-info             | mixin for .contentPage__info class                      | {}       |
+--adom-demo-helper-properties-content-page-info-heading     | mixin for .contentPage__info__heading class             | {}       |
+--adom-demo-helper-properties-content-page-info-description | mixin for .contentPage__info__heading_description class | {}       |
+
+@demo demo/index.html
+-->
+
+<dom-module id="adom-demo-helper-properties">
+  <style include="adom-demo-helper-properties-styles adom-demo-helper-properties-shared-styles"></style>
+  <template>
+    <div class="contentPage">
+      <div class="contentPage__info">
+        <h1 id="heading" class="contentPage__info__heading"></h1>
+        <span id="description" class="contentPage__info__description"></span>
+      </div>
+
+      <div class="tabs">
+        <paper-tabs selected="{{selected}}" noink>
+          <template is="dom-if" if="[[_propertiesBinded]]">
+            <paper-tab>
+              <iron-icon icon="vaadin:curly-brackets"></iron-icon>Component properties
+            </paper-tab>
+          </template>
+          <template is="dom-if" if="[[_mixins]]">
+            <paper-tab>
+              <iron-icon icon="vaadin:paintbrush"></iron-icon>Component css vars
+            </paper-tab>
+          </template>
+          <template is="dom-if" if="[[methods]]">
+            <paper-tab>
+              <iron-icon icon="vaadin:file-tree-sub"></iron-icon>Component methods
+            </paper-tab>
+          </template>
+          <template is="dom-if" if="[[slot]]">
+            <paper-tab>
+              <iron-icon icon="vaadin:code"></iron-icon>Component slot
+            </paper-tab>
+          </template>
+        </paper-tabs>
+
+        <iron-pages selected="{{selected}}">
+          <template is="dom-if" if="[[_propertiesBinded]]">
+            <div class="selected">
+              <h3>Component properties</h3>
+              <div class="contentPage__properties">
+                <template is="dom-repeat" items="[[_propertiesBinded]]">
+                  <template is="dom-if" if="[[!item.list]]">
+                    <template is="dom-if" if="[[item.color]]">
+                      <paper-swatch-picker color="{{item.value}}" on-color-changed="_setProperties"></paper-swatch-picker>
+                    </template>
+                    <paper-input label="[[item.label]]" type="[[item.type]]" value="{{item.value}}" on-value-changed="_setProperties">
+                    </paper-input>
+                  </template>
+                  <template is="dom-if" if="[[item.list]]">
+                    <paper-dropdown-menu label="[[item.label]]">
+                      <paper-listbox slot="dropdown-content" selected="{{item.selected}}" on-selected-changed="_setProperties">
+                        <template is="dom-repeat" items="[[item.list]]" as="list">
+                          <paper-item>[[list.value]]</paper-item>
+                        </template>
+                      </paper-listbox>
+                    </paper-dropdown-menu>
+                  </template>
+                </template>
+              </div>
+            </div>
+          </template>
+          <template is="dom-if" if="[[_mixins]]">
+            <div class="selected">
+              <h3>Component css vars</h3>
+              <div class="contentPage__properties">
+                <template is="dom-repeat" items="[[_mixins]]">
+                  <template is="dom-if" if="[[_computeColor(item)]]">
+                    <paper-swatch-picker color="{{item.value}}" on-color-changed="_setProperties"></paper-swatch-picker>
+                  </template>
+                  <paper-input label="[[item.mixin]]" type="text" value="{{item.value}}" on-value-changed="_setProperties">
+                  </paper-input>
+                </template>
+              </div>
+            </div>
+          </template>
+          <template is="dom-if" if="[[methods]]">
+            <div class="selected">
+              <h3>Component methods</h3>
+              <div class="contentPage__properties">
+                <template is="dom-repeat" items="[[methods]]">
+                  <paper-button raised class="indigo" id$="[[item]]" on-tap="_setMethod">[[item]]</paper-button>
+                </template>
+              </div>
+            </div>
+          </template>
+          <template is="dom-if" if="[[slot]]">
+            <div class="selected">
+              <h3>Component slot</h3>
+              <div class="contentPage__properties">
+                <paper-toggle-button checked="{{allowSlot}}" on-checked-changed="_setProperties">The use of slot is actived: [[allowSlot]]</paper-toggle-button>
+                <paper-textarea id="slot" label="slot content" value="{{slotted}}" on-value-changed="_setProperties"></paper-textarea>
+              </div>
+            </div>
+          </template>
+        </iron-pages>
+      </div>
+
+      <content id="content"></content>
+    </div>
+    <paper-toast id="toast">
+      <div id="toastContent" class="toastContent">
+      </div>
+    </paper-toast>
+  </template>
+  <script src="adom-demo-helper-properties.js"></script>
+</dom-module>

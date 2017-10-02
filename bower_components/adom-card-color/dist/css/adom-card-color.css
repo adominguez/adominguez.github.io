@@ -1,0 +1,62 @@
+:host([hidden]) {
+  display: none; }
+
+:host {
+  display: block;
+  box-sizing: border-box;
+  background-color: var(--adom-card-color-bg-color, #00ff00);
+  color: var(--adom-card-color-color, #fff);
+  border: 1px solid #d7dfe3;
+  border-radius: 4px;
+  position: relative;
+  @apply --adom-card-color; }
+
+.header {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1.25em;
+  @apply --adom-card-color-header; }
+  .header__icon {
+    margin-right: 20px;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    --iron-icon-height: var(--adom-card-color-header-icon, 64px);
+    --iron-icon-width: var(--adom-card-color-header-icon, 64px);
+    @apply --adom-card-color-header-icon; }
+  .header__heading {
+    padding-top: 10px;
+    font-size: 22px;
+    @apply --adom-card-color-header-heading; }
+
+.body {
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1.25em;
+  font-weight: lighter;
+  @apply --adom-card-color-body; }
+  .body__counter {
+    font-size: 22px;
+    min-width: var(--adom-card-color-body-counter-width, 200px);
+    @apply --adom-card-color-body-counter; }
+  .body__description {
+    width: calc(100% - var(--adom-card-color-body-counter-width, 200px)); }
+
+:host([collapsed]) .body {
+  position: absolute;
+  top: 0;
+  margin-left: 85px;
+  max-height: 50px;
+  overflow: hidden;
+  width: 100%;
+  @apply --adom-card-color-body-collapsed; }
+  :host([collapsed]) .body__counter {
+    transform: translate(0, 37px);
+    min-width: 115px;
+    font-size: 14px;
+    font-weight: lighter;
+    height: 40px;
+    color: rgba(255, 255, 255, 0.65);
+    @apply --adom-card-color-body-collapsed-counter; }
+  :host([collapsed]) .body__description {
+    width: calc(100% - var(--adom-card-color-body-counter-width, 200px)); }

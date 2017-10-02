@@ -17,16 +17,15 @@
 
   </script>
 
-  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-  <link rel="import" href="../../adom-demo/adom-demo.html">
+  <link rel="import" href="../../adom-demo-marked/adom-demo-marked.html">
+  <link rel="import" href="../../adom-demo-helper-properties/adom-demo-helper-properties.html">
   <link rel="import" href="../app-page.html">
 
   <style is="custom-style" include="demo-pages-shared-styles">
     /*Common styles*/
 
-    demo-snippet {
-      --demo-snippet-demo: {
+    adom-demo-marked {
+      --adom-demo-marked-demo: {
         display: block;
       };
     }
@@ -35,37 +34,12 @@
 </head>
 
 <body>
-  <adom-demo id="demo" option-selected="0">
-    <demo-snippet id="view0" data-heading="Basic app-header">
+  <adom-demo-helper-properties id="demo" component-name="app-page" properties-setted='[{"label": "title-page", "value": "Title page"}, {"label": "subtitle-page", "value": "Subtitle page"}, {"label": "readme", "selected": "1", "list": [{"value":""}, {"value": "https://raw.githubusercontent.com/adominguez/app-page/master/demo/FILE.md"}, {"value": "https://raw.githubusercontent.com/PolymerElements/polymer-starter-kit/master/README.md"}]}, {"label": "hide-panel-right", "selected": "0", "list": [{"value": "false"}, {"value": "true"}]}, {"label": "fade-in", "selected": "0", "list": [{"value": "false"}, {"value": "true"}]}, {"label": "responsive", "selected": "0", "list": [{"value": "false"}, {"value": "true"}]}]'>
+    <adom-demo-marked id="view0" data-heading="Basic app-header">
       <template is="dom-bind">
-        <app-page readme="https://raw.githubusercontent.com/adominguez/app-page/master/demo/FILE.md"></app-page>
       </template>
-    </demo-snippet>
-    <demo-snippet id="view1" data-heading="With title and subtitle" data-description="using the properties 'title-page' and 'subtitle-page'">
-      <template is="dom-bind">
-        <app-page readme="https://raw.githubusercontent.com/PolymerElements/polymer-starter-kit/master/README.md" title-page="blog"
-          subtitle-page="Marked publications" fade-in></app-page>
-      </template>
-    </demo-snippet>
-    <demo-snippet id="view2" data-heading="without panel right" data-description="if use the property hide-panel-right is possible hide right panel">
-      <template is="dom-bind">
-        <app-page title-page="About us" subtitle-page="we are a great company" hide-panel-right fade-in>
-          <div slot="left-content">
-            Here goes content.
-          </div>
-        </app-page>
-      </template>
-    </demo-snippet>
-    <demo-snippet id="view3" data-heading="responsive" data-description="this component is responsive in 770px">
-      <template is="dom-bind">
-        <app-page title-page="Contact" subtitle-page="contact with us" responsive fade-in>
-          <div slot="left-content">
-            Here goes content.
-          </div>
-        </app-page>
-      </template>
-    </demo-snippet>
-  </adom-demo>
+    </adom-demo-marked>
+  </adom-demo-helper-properties>
 </body>
 
 </html>

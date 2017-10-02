@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>adom-card-color demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script>
+    window.Polymer = {
+      dom: 'shadow',
+      lazyRegister: 'true',
+      useNativeCSSProperties: 'true'
+    }
+  </script>
+
+  <link rel="import" href="../../iron-icons/iron-icons.html">
+  <link rel="import" href="../../adom-demo-helper-properties/adom-demo-helper-properties.html">
+  <link rel="import" href="../../adom-demo-marked/adom-demo-marked.html">
+  <link rel="import" href="../adom-card-color.html">
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+    /*Common styles*/
+    body {
+      margin: 0;
+    }
+    demo-snippet {
+      --demo-snippet-demo: {
+        display: block;
+      };
+    }
+  </style>
+</head>
+
+<body>
+  <adom-demo-helper-properties id="demo" toast-events='["adom-card-color-reset"]' component-name="adom-card-color" properties-setted='[{"label": "color", "value": "#65a5f2", "color": "#65a5f2"}, {"label": "heading", "value": "title"}, {"label": "description", "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus, libero eu condimentum congue, eros nisi dictum nibh, et lobortis felis justo nec quam. Suspendisse condimentum fermentum efficitur. Integer ut ipsum tortor. Morbi nec consequat metus. Quisque pharetra efficitur erat. Donec aliquam tellus mollis est ultrices rutrum. Donec sem magna, ultricies a tempor id, scelerisque at neque. Ut quis leo felis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tempus, libero eu condimentum congue, eros nisi dictum nibh, et lobortis felis justo nec quam. Suspendisse condimentum fermentum efficitur. Integer ut ipsum tortor. Morbi nec consequat metus. Quisque pharetra efficitur erat. Donec aliquam tellus mollis est ultrices rutrum. Donec sem magna, ultricies a tempor id, scelerisque at neque. Ut quis leo felis."}, {"label": "counter", "value": "4", "type": "number"}, {"label": "units", "value": "components"}, {"label": "icon", "selected": "0", "list": [{"value":"icons:view-module"}, {"value": "icons:view-carousel"}, {"value": "icons:touch-app"}, {"value": "icons:today"}]}, {"label": "collapsed", "selected": "0", "list": [{"value": "false"}, {"value": "true"}]}]' methods='["reset"]'>
+    <adom-demo-marked id="view0" data-heading="Adom card color" data-description="This is a reserved space for a description or a note about the component (e.g. the var --adom-card-color-bg-color is changed with the property color of the component)">
+      <template is="dom-bind">
+      </template>
+    </adom-demo-marked>
+  </adom-demo-helper-properties>
+</body>
+
+</html>
