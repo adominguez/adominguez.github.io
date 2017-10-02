@@ -11,7 +11,9 @@
     "paper-menu": "PolymerElements/paper-menu#4fecb43601",
     "app-page": "https://github.com/adominguez/app-page.git",
     "vaadin-icons": "vaadin/vaadin-icons#^4.1.0",
-    "social-links": "convoo/social-links#^0.0.2"
+    "social-links": "convoo/social-links#^0.0.2",
+    "adom-card-color": "https://github.com/adominguez/adom-card-color.git",
+    "adom-demo-helper-properties": "https://github.com/adominguez/adom-demo-helper-properties.git"
   },
   "devDependencies": {
     "web-component-tester": "*"
