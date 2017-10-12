@@ -13,7 +13,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="Desarrollador front end de aplicaciones web. Esta es mi página personal, Aquí encontrarás HTML5, CSS3, Javascript, Polymer y Angular,">
+  <meta name="description" content="Desarrollador front end de aplicaciones web. Esta es mi página personal, Aquí encontrarás HTML5, CSS3, Javascript, Polymer, vueJS y Angular,">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="ADominguez" />
   <title>Página personal de Alberto Dominguez, desarrollador front end</title>
@@ -120,6 +120,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <iron-icon icon="vaadin:envelope-open-o"></iron-icon>
             <span>Contact</span>
           </a>
+
+          <!-- Toolbar icons -->
+          <github-link href="https://github.com/adominguez" height="18px" color="#666"></github-link>
+          <linkedin-link href="https://www.linkedin.com/in/albertodominguezmartin/" height="18px" color="#666"></linkedin-link>
+          <twitter-link href="https://www.twitter.com/@ADominguezes" height="18px" color="#666"></twitter-link>
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -128,26 +133,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
         <!-- Main Toolbar -->
-        <paper-toolbar id="mainToolbar" class="tall">
-          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-          <span class="flex"></span>
-
-          <!-- Toolbar icons -->
-          <github-link href="https://github.com/adominguez" height="18px" color="#666"></github-link>
-          <linkedin-link href="https://www.linkedin.com/in/albertodominguezmartin/" height="18px" color="#666"></linkedin-link>
-          <twitter-link href="https://www.twitter.com/@ADominguezes" height="18px" color="#666"></twitter-link>
-
-          <!-- Application name -->
-          <div class="middle middle-container center horizontal layout">
-            <h1 class="app-name">[[heading]]</h1>
-          </div>
-
-          <!-- Application sub title -->
-          <div class="bottom bottom-container center horizontal layout">
-            <h2 class="bottom-title paper-font-subhead">[[subheading]]</h2>
-          </div>
-
-        </paper-toolbar>
+        <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
 
         <!-- Main Content -->
         <div class="content">
@@ -196,7 +182,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
 
             <section data-route="mi-historia">
-              <app-page readme="https://raw.githubusercontent.com/adominguez/adominguez.github.io/develop/docs/pages/mi-historia.md" responsive fade-in>
+              <app-page file-name="mi-historia" file-type="md" host="https://raw.githubusercontent.com/adominguez/adominguez.github.io/"
+                route="develop/docs/pages/" responsive fade-in>
               </app-page>
             </section>
 
@@ -222,25 +209,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <paper-material elevation="1">
                 <h2 class="page-title">Webcomponents</h2>
                 <p>This is the users webcomponents</p>
-                <a href$="{{baseUrl}}webcomponents/Addy">Addy</a><br>
-                <a href$="{{baseUrl}}webcomponents/Rob">Rob</a><br>
-                <a href$="{{baseUrl}}webcomponents/Chuck">Chuck</a><br>
+                <a href$="{{baseUrl}}webcomponents/adom-card-color">adom-card-color</a><br>
+                <a href$="{{baseUrl}}webcomponents/iron-icon">iron-icon</a><br>
+                <a href$="{{baseUrl}}webcomponents/app-page">app-page</a><br>
                 <a href$="{{baseUrl}}webcomponents/Sam">Sam</a>
               </paper-material>
             </section>
 
             <section data-route="blog-post">
               <paper-material elevation="1">
+
                 <h2 class="page-title">User: {{params.name}}</h2>
                 <div>This is {{params.name}}'s section</div>
               </paper-material>
             </section>
 
             <section data-route="webcomponents-component">
-              <paper-material elevation="1">
-                <h2 class="page-title">User: {{params.name}}</h2>
-                <div>This is {{params.name}}'s section</div>
-              </paper-material>
+              <app-page id="webcomponentsComponent" responsive fade-in file-name="{{params.name}}">
+                <div slot="right-content">
+                  <app-page-content-right github-account="adominguez" component-name="{{params.name}}"></app-page-content-right>
+                </div>
+              </app-page>
             </section>
 
             <section data-route="contact">
