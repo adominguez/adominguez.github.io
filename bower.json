@@ -13,13 +13,28 @@
     "vaadin-icons": "vaadin/vaadin-icons#^4.1.0",
     "social-links": "convoo/social-links#^0.0.2",
     "adom-card-color": "https://github.com/adominguez/adom-card-color.git",
-    "adom-demo-helper-properties": "https://github.com/adominguez/adom-demo-helper-properties.git"
+    "adom-demo-helper-properties": "https://github.com/adominguez/adom-demo-helper-properties.git",
+    "app-page-content-right": "adominguez/app-page-content-right"
   },
   "devDependencies": {
     "web-component-tester": "*"
   },
   "ignore": [],
   "resolutions": {
-    "paper-menu": "4fecb43601"
+    "paper-menu": "4fecb43601",
+    "polymer": "^1.9.0",
+    "iron-iconset-svg": "^1.0.0",
+    "iron-location": "^0.8.0",
+    "iron-selector": "^1.0.0",
+    "paper-toast": "^1.0.0",
+    "paper-listbox": "^1.0.0",
+    "paper-dropdown-menu": "^1.0.0",
+    "paper-item": "^1.0.0",
+    "paper-input": "^1.0.0",
+    "paper-toggle-button": "^1.0.0",
+    "iron-icon": "^1.0.0",
+    "prism-element": "^1.1.0",
+    "marked-element": "^1.0.0",
+    "webcomponentsjs": "^0.7.24"
   }
 }
