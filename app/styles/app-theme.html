@@ -194,7 +194,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   }
 
   iron-pages {
-    padding: 0em 0em 0 2em;
+    padding: 0em;
+  }
+
+  app-page {
+    --app-page-panel-right-width: 300px;
   }
 
   #mainToolbar {
@@ -214,6 +218,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     padding-bottom: 0;
   }
 
+  paper-scroll-header-panel {
+    --paper-scroll-header-panel-container: {
+      overflow: hidden;
+    }
+  }
+  paper-icon-button {
+    --paper-icon-button: {
+      display: flex;
+      margin-left: auto;
+      width: 50px;
+      height: 50px;
+    }
+  }
   #mainToolbar .bottom {
     margin-left: 48px;
     /* Required for main area's paper-scroll-header-panel custom condensing transformation */
