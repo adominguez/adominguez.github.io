@@ -187,6 +187,10 @@
     padding: 0em;
   }
 
+  app-page {
+    --app-page-panel-right-width: 300px;
+  }
+
   #mainToolbar {
     background: var(--primary-background-color);
     color: var(--basic-text-color);
@@ -204,6 +208,19 @@
     padding-bottom: 0;
   }
 
+  paper-scroll-header-panel {
+    --paper-scroll-header-panel-container: {
+      overflow: hidden;
+    }
+  }
+  paper-icon-button {
+    --paper-icon-button: {
+      display: flex;
+      margin-left: auto;
+      width: 50px;
+      height: 50px;
+    }
+  }
   #mainToolbar .bottom {
     margin-left: 48px;
     /* Required for main area's paper-scroll-header-panel custom condensing transformation */

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>app-page-content-right demo</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script>
+    window.Polymer = {
+      dom: 'shadow',
+      lazyRegister: 'true',
+      useNativeCSSProperties: 'true'
+    }
+  </script>
+
+  <link rel="import" href="../../iron-icons/iron-icons.html">
+  <link rel="import" href="../../adom-demo-helper-properties/adom-demo-helper-properties.html">
+  <link rel="import" href="../../adom-demo-marked/adom-demo-marked.html">
+  <link rel="import" href="../app-page-content-right.html">
+
+  <style is="custom-style" include="demo-pages-shared-styles">
+    /*Common styles*/
+    body {
+      margin: 0;
+    }
+    demo-snippet {
+      --demo-snippet-demo: {
+        display: block;
+      };
+    }
+  </style>
+</head>
+
+<body>
+  <adom-demo-helper-properties toast-events='["content-copied", "change-view", "go-github"]' id="demo" component-name="app-page-content-right" properties-setted='[{"label": "github-account", "value": "adominguez"}, {"label": "component-name", "value": "adom-card-color"}, {"label": "collapsed", "selected": "0", "list": [{"value": "false"}, {"value": "true"}]}]' methods='["reset"]'>
+    <adom-demo-marked id="view0" data-heading="Adom card color" data-description="This is a reserved space for a description or a note about the component (e.g. the var --app-page-content-right-bg-color is changed with the property color of the component)">
+      <template is="dom-bind">
+      </template>
+    </adom-demo-marked>
+  </adom-demo-helper-properties>
+</body>
+
+</html>

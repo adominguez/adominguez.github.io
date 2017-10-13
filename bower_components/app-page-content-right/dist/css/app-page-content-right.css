@@ -1,0 +1,78 @@
+:host([hidden]) {
+  display: none; }
+
+:host {
+  display: block;
+  box-sizing: border-box;
+  color: var(--app-page-content-right-color, #212121);
+  @apply --app-page-content-right; }
+
+.box {
+  border: 1px solid #e5e5e5;
+  box-sizing: border-box;
+  margin: 0.5em; }
+  .box__bower__header {
+    background: #ffcc2f;
+    color: #fff;
+    padding: 0.5em;
+    font-size: 22px;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex; }
+    .box__bower__header img {
+      padding-right: 10px; }
+  .box__bower__body {
+    padding: 1em; }
+  .box__resources__header {
+    background: #121212;
+    color: #fff;
+    padding: 0.5em;
+    font-size: 22px;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex; }
+    .box__resources__header img {
+      padding-right: 10px; }
+  .box__resources__body {
+    padding: 1em; }
+    .box__resources__body__span {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      position: relative;
+      box-sizing: border-box;
+      width: 200px; }
+  .box__resources__footer {
+    display: -ms-flexbox;
+    display: flex;
+    border-top: 1px solid #e5e5e5; }
+    .box__resources__footer__button {
+      -ms-flex-positive: 1;
+      flex-grow: 1;
+      cursor: pointer;
+      margin: 0;
+      background-color: transparent;
+      border: none;
+      padding: 1em;
+      border-left: 1px solid #e5e5e5;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-align: center;
+      align-items: center; }
+      .box__resources__footer__button__icon {
+        margin-bottom: 0.5em; }
+      .box__resources__footer__button__svg {
+        height: 24px;
+        margin-bottom: 0.5em; }
+      .box__resources__footer__button__span {
+        font-size: 12px; }
+    .box__resources__footer__button:first-child {
+      border-left: none; }
+    .box__resources__footer__button:hover {
+      background-color: #fafafa; }
+    .box__resources__footer__button:focus {
+      background-color: #fafafa; }

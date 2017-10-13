@@ -95,8 +95,8 @@
       for (var i = 0; i < this.toastEvents.length; i++) {
         this.addEventListener(this.toastEvents[i], function (e) {
           this._showToast(e);
-          if(e.detail.value) {
-            this.$.toastContent.innerHTML=e.detail.value
+          if(e.detail !== null) {
+            this.$.toastContent.innerHTML=e.detail
           }
         })
       }

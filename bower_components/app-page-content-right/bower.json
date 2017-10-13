@@ -1,0 +1,20 @@
+{
+  "name": "app-page-content-right",
+  "version": "0.1.0",
+  "description": "This component shows a box with information inside",
+  "main": "app-page-content-right.html",
+  "keywords": [],
+  "ignore": [],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.8.0",
+    "paper-icon-button": "paper-icon-button#^1.1.6",
+    "vaadin-icons": "vaadin/vaadin-icons#^4.1.2"
+  },
+  "devDependencies": {
+    "adom-demo-helper-properties": "https://github.com/adominguez/adom-demo-helper-properties.git",
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-icons": "PolymerElements/iron-icons#^1.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  }
+}

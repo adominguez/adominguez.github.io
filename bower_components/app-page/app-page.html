@@ -114,13 +114,13 @@ The following custom properties and mixins are available for styling:
       <h2 class="panel-left__subtitle" hidden$="[[!subtitlePage]]">[[subtitlePage]]</h2>
         <div class="panel-left__left-content">
           <slot name="left-content">
-            <zero-md file="{{readme}}" hidden$="[[!readme]]">
+            <zero-md id="zero" class="panel-left__left-content__zero" file="{{_fileUrl}}">
               <div class="md-html"></div>
             </zero-md>
+            <iframe src$="{{_fileUrl}}" id="iframe" class="panel-left__left-content__iframe" frameborder="0"></iframe>
           </slot>
           <div class="panel-left__left-content__left-content-down">
             <slot name="left-content-down">
-              <p>Here You can add more information or new component this slot is <b>left-content-down</b></p>
             </slot>
           </div>
         </div>
@@ -128,7 +128,6 @@ The following custom properties and mixins are available for styling:
     <div class="panel-right" hidden$="[[hidePanelRight]]">
       <div class="panel-right__right-content">
         <slot name="right-content">
-          <p>Right content</p>
         </slot>
       </div>
     </div>
