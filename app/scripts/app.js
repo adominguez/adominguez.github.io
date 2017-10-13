@@ -40,7 +40,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   window.addEventListener('WebComponentsReady', function() {
 
     document.addEventListener('change-view', function(e) {
-      if(e.detail.type === 'demo') {
+      if (e.detail.type === 'demo') {
         app.$.webcomponentsComponent.showDoc = false;
       } else {
         app.$.webcomponentsComponent.showDoc = true;
