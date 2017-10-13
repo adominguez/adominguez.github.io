@@ -24,7 +24,7 @@
        */
       host: {
         type: String,
-        value: 'http://adominguez.github.io/'
+        value: 'https://adominguez.github.io/'
       },
       /**
        * Host of url
