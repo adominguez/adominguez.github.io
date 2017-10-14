@@ -134,7 +134,9 @@
       request.onerror = function () {
         ajaxErr(request);
       };
-      request.send();
+      if(request.response !== '') {
+        request.send();
+      }
     },
 
     _setFileHtml: function() {

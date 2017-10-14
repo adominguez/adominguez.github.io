@@ -162,7 +162,7 @@ Custom property                           | Description                         
                   </template>
                   <template is="dom-if" if="[[item.list]]">
                     <paper-dropdown-menu label="[[item.label]]">
-                      <paper-listbox slot="dropdown-content" selected="{{item.selected}}" on-selected-changed="_setProperties">
+                      <paper-listbox class="dropdown-content" slot="dropdown-content" selected="{{item.selected}}" on-selected-changed="_setProperties">
                         <template is="dom-repeat" items="[[item.list]]" as="list">
                           <paper-item>[[list.value]]</paper-item>
                         </template>
