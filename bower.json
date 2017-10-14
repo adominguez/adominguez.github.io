@@ -35,6 +35,7 @@
     "iron-icon": "^1.0.0",
     "prism-element": "^1.1.0",
     "marked-element": "^1.0.0",
-    "webcomponentsjs": "^0.7.24"
+    "webcomponentsjs": "^0.7.24",
+    "iron-ajax": "^1.0.0"
   }
 }
