@@ -38,12 +38,10 @@
   .box__resources__body {
     padding: 1em; }
     .box__resources__body__span {
-      overflow: hidden;
+      width: calc(100% - 1px);
       white-space: nowrap;
-      text-overflow: ellipsis;
-      position: relative;
-      box-sizing: border-box;
-      width: 200px; }
+      overflow: hidden;
+      text-overflow: ellipsis; }
   .box__resources__footer {
     display: -ms-flexbox;
     display: flex;

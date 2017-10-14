@@ -70,3 +70,9 @@ paper-textarea {
   .contentPage paper-dropdown-menu {
     display: block;
     margin-right: 20px; }
+
+.data {
+  width: 100%; }
+
+.juicy-jsoneditor {
+  min-width: 350px; }

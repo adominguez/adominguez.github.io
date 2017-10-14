@@ -19,13 +19,15 @@
     "paper-input": "PolymerElements/paper-input#^2.0.1",
     "adom-demo-marked": "adominguez/adom-demo-marked",
     "paper-toggle-button": "PolymerElements/paper-toggle-button#^2.0.0",
-    "vaadin-icons": "vaadin/vaadin-icons#^4.1.2"
+    "vaadin-icons": "vaadin/vaadin-icons#^4.1.2",
+    "iron-ajax": "PolymerElements/iron-ajax#^2.0.5",
+    "juicy-jsoneditor": "Juicy/juicy-jsoneditor#^1.2.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "Polymer/web-component-tester#^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
-    "adom-card-color": "adominguez/adom-card-color.git"
+    "adom-card-color": "https://github.com/adominguez/adom-card-color.git"
   },
   "resolutions": {
     "webcomponentsjs": "^0.7.0"

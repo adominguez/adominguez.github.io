@@ -2,6 +2,7 @@
 <link rel="import" href="../paper-tabs/paper-tabs.html">
 <link rel="import" href="../paper-tabs/paper-tab.html">
 <link rel="import" href="../iron-pages/iron-pages.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../vaadin-icons/vaadin-icons.html">
@@ -14,7 +15,7 @@
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../paper-listbox/paper-listbox.html">
 <link rel="import" href="../paper-item/paper-item.html">
-<link rel="import" href="../paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../juicy-jsoneditor/juicy-jsoneditor.html">
 <link rel="import" href="adom-demo-helper-properties-styles.html">
 
 <!--
@@ -124,31 +125,36 @@ Custom property                           | Description                         
       </div>
 
       <div class="tabs">
-        <paper-tabs selected="{{selected}}" noink>
-          <template is="dom-if" if="[[_propertiesBinded]]">
+        <paper-tabs selected="{{selected}}" noink scrollable>
+          <template is="dom-if" if="[[_propertiesBinded.length]]">
             <paper-tab>
               <iron-icon icon="vaadin:curly-brackets"></iron-icon>Component properties
             </paper-tab>
           </template>
-          <template is="dom-if" if="[[_mixins]]">
+          <template is="dom-if" if="[[_mixins.length]]">
             <paper-tab>
               <iron-icon icon="vaadin:paintbrush"></iron-icon>Component css vars
             </paper-tab>
           </template>
-          <template is="dom-if" if="[[methods]]">
+          <template is="dom-if" if="[[methods.length]]">
             <paper-tab>
-              <iron-icon icon="vaadin:file-tree-sub"></iron-icon>Component methods
+              <iron-icon icon="vaadin:form"></iron-icon>Component methods
             </paper-tab>
           </template>
-          <template is="dom-if" if="[[slot]]">
+          <template is="dom-if" if="[[slot.length]]">
             <paper-tab>
               <iron-icon icon="vaadin:code"></iron-icon>Component slot
+            </paper-tab>
+          </template>
+          <template is="dom-if" if="[[propertyBindedData]]">
+            <paper-tab>
+              <iron-icon icon="vaadin:file-tree"></iron-icon>component data
             </paper-tab>
           </template>
         </paper-tabs>
 
         <iron-pages selected="{{selected}}">
-          <template is="dom-if" if="[[_propertiesBinded]]">
+          <template is="dom-if" if="[[_propertiesBinded.length]]">
             <div class="selected">
               <h3>Component properties</h3>
               <div class="contentPage__properties">
@@ -162,7 +168,7 @@ Custom property                           | Description                         
                   </template>
                   <template is="dom-if" if="[[item.list]]">
                     <paper-dropdown-menu label="[[item.label]]">
-                      <paper-listbox class="dropdown-content" slot="dropdown-content" selected="{{item.selected}}" on-selected-changed="_setProperties">
+                      <paper-listbox slot="dropdown-content" class="dropdown-content" selected="{{item.selected}}" on-selected-changed="_setProperties">
                         <template is="dom-repeat" items="[[item.list]]" as="list">
                           <paper-item>[[list.value]]</paper-item>
                         </template>
@@ -173,7 +179,7 @@ Custom property                           | Description                         
               </div>
             </div>
           </template>
-          <template is="dom-if" if="[[_mixins]]">
+          <template is="dom-if" if="[[_mixins.length]]">
             <div class="selected">
               <h3>Component css vars</h3>
               <div class="contentPage__properties">
@@ -187,7 +193,7 @@ Custom property                           | Description                         
               </div>
             </div>
           </template>
-          <template is="dom-if" if="[[methods]]">
+          <template is="dom-if" if="[[methods.length]]">
             <div class="selected">
               <h3>Component methods</h3>
               <div class="contentPage__properties">
@@ -197,12 +203,24 @@ Custom property                           | Description                         
               </div>
             </div>
           </template>
-          <template is="dom-if" if="[[slot]]">
+          <template is="dom-if" if="[[slot.length]]">
             <div class="selected">
               <h3>Component slot</h3>
               <div class="contentPage__properties">
                 <paper-toggle-button checked="{{allowSlot}}" on-checked-changed="_setProperties">The use of slot is actived: [[allowSlot]]</paper-toggle-button>
                 <paper-textarea id="slot" label="slot content" value="{{slotted}}" on-value-changed="_setProperties"></paper-textarea>
+              </div>
+            </div>
+          </template>
+          <template is="dom-if" if="[[propertyBindedData]]">
+            <div class="selected">
+              <h3>Component data</h3>
+              <div class="contentPage__properties">
+                <iron-ajax id="response" auto url="[[dataUrl]]" handle-as="json" last-response="{{data}}"></iron-ajax>
+                <paper-input class="data" label="data" type="text" id="data" value="{{dataUrl}}" on-value-changed="_setProperties"></paper-input>
+                <div>
+                  <juicy-jsoneditor class="juicy-jsoneditor" json="[[data]]"></juicy-jsoneditor>
+                </div>
               </div>
             </div>
           </template>

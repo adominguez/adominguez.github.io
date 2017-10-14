@@ -36,8 +36,7 @@
         observer: '_setSlot'
       },
       slot: {
-        type: String,
-        value: '_slotted',
+        type: String
       },
       slotted: {
         type: String
@@ -79,6 +78,20 @@
         value: function () {
           return [];
         }
+      },
+      dataUrl: {
+        type: String,
+        value: null
+      },
+      data: {
+        type: Array,
+        value: function () {
+          return [];
+        }
+      },
+      propertyBindedData: {
+        type: String,
+        value: null
       },
       /**
        * selected in paper-tabs
@@ -134,9 +147,7 @@
       request.onerror = function () {
         ajaxErr(request);
       };
-      if(request.response !== '') {
-        request.send();
-      }
+      request.send();
     },
 
     _setFileHtml: function() {
@@ -178,6 +189,8 @@
       var snippet = "";
       var style = "";
       var script = "";
+      var data = "";
+      var propertyData = "";
       var slot = "";
 
       /**
@@ -223,6 +236,14 @@
       }
 
       /**
+       * Do the fragment script for data component
+       */
+      if(this.propertyBindedData) {
+        data += `<iron-ajax auto url="${this.dataUrl}" handle-as="json" last-response="{{main}}"></iron-ajax>`
+        propertyData += `${this.propertyBindedData}="[[main]]"`
+      }
+
+      /**
        * Do the fragment script for the methods in component
        */
       if((this.methods) && (this.methods !== [])) {
@@ -240,17 +261,20 @@
       </script>`
       }
 
+
+
       /**
        * Add all code in markdown
        */
       html = `<template is="dom-bind" id="demo">
       ${style}
-      <${this.componentName} ${newProperties} id="component" >
+      ${data}
+      <${this.componentName} ${propertyData} ${newProperties} id="component" >
       ${slot}
       </${this.componentName}>
       ${script}
       </template>`
-      snippet = '<'+ this.componentName + ' ' + newProperties + '></'+ this.componentName + '>'
+      snippet = '<'+ this.componentName + ' ' + propertyData.newProperties + '></'+ this.componentName + '>'
       this.children[0].innerHTML = html;
       this.children[0]._markdown = '```' + snippet + '```';
     },
@@ -299,7 +323,7 @@
             arraySlot.push({
               "slot": item
             });
-            array.push(item)
+            array.push(item);
           }
         }
       }

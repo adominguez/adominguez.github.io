@@ -19,6 +19,7 @@
 
   <link rel="import" href="../../adom-demo-marked/adom-demo-marked.html">
   <link rel="import" href="../../adom-card-color/adom-card-color.html">
+  <link rel="import" href="../../iron-ajax/iron-ajax.html">
   <link rel="import" href="../adom-demo-helper-properties.html">
 
   <style is="custom-style">
@@ -36,7 +37,7 @@
 </head>
 
 <body>
-  <adom-demo-helper-properties id="demo" toast-events='["ready-component"]' component-name="adom-card-color" properties-setted='[{"label": "color", "value": "#65a5f2", "color": "#65a5f2"}, {"label": "heading", "value": "title"}, {"label": "counter", "value": "4", "type": "number"}, {"label": "units", "value": "components"}, {"label": "icon", "selected": "0", "list": [{"value":"icons:view-module"}, {"value": "icons:view-carousel"}, {"value": "icons:touch-app"}, {"value": "icons:today"}]}, {"label": "collapsed", "selected": "0", "list": [{"value": "false"}, {"value": "true"}]}]'>
+  <adom-demo-helper-properties id="demo" component-name="adom-card-color" methods='["reset"]' data-url="https://adominguez-api.herokuapp.com/appjson/curriculum" property-binded-data="main" toast-events='["ready-component"]' properties-setted='[{"label": "color", "value": "#65a5f2", "color": "#65a5f2"}, {"label": "heading", "value": "title"}, {"label": "counter", "value": "4", "type": "number"}, {"label": "units", "value": "components"}, {"label": "icon", "selected": "0", "list": [{"value":"icons:view-module"}, {"value": "icons:view-carousel"}, {"value": "icons:touch-app"}, {"value": "icons:today"}]}, {"label": "collapsed", "selected": "0", "list": [{"value": "false"}, {"value": "true"}]}]'>
     <adom-demo-marked id="view0" data-heading="Hello World" data-description="This is a reserved space for a description or a note about the component (e.g. the var --adom-card-color-bg-color is changed with the property color of the component)">
       <template is="dom-bind">
       </template>

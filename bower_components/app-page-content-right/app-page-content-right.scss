@@ -44,12 +44,10 @@
     &__body {
       padding: 1em;
       &__span {
-        overflow: hidden;
+        width: calc(100% - 1px);
         white-space: nowrap;
+        overflow: hidden;
         text-overflow: ellipsis;
-        position: relative;
-        box-sizing: border-box;
-        width: 200px;
       }
     }
     &__footer {
