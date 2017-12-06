@@ -1,12 +1,22 @@
 {
   "name": "adom-card-color",
-  "version": "0.1.0",
+  "version": "1.1.1",
   "description": "This component shows a box with information inside",
   "main": "adom-card-color.html",
-  "keywords": [],
+  "author": "ADominguez",
+  "library": "Polymer 1",
+  "keywords": [
+    "card",
+    "color"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adominguez/adom-card-color"
+  },
   "ignore": [],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.8.0",
+    "polymer": "Polymer/polymer#^1.9.0",
     "iron-icon": "iron-icon#^1.0.0"
   },
   "devDependencies": {
@@ -15,5 +25,8 @@
     "iron-icons": "PolymerElements/iron-icons#^1.0.0",
     "web-component-tester": "Polymer/web-component-tester#^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "resolutions": {
+    "webcomponentsjs": "^0.7"
   }
 }

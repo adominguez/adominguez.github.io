@@ -1,0 +1,416 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "`adom-demo-helper-properties`\nIs a component created for to be used in other demo components with properties\n\n@demo demo/index.html",
+      "summary": "",
+      "path": "adom-demo-helper-properties.js",
+      "properties": [
+        {
+          "name": "componentName",
+          "type": "string",
+          "description": "Component name, is a obligatory property",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 11,
+              "column": 6
+            },
+            "end": {
+              "line": 14,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_setHeading\""
+            }
+          }
+        },
+        {
+          "name": "bower",
+          "type": "string",
+          "description": "Is the route of bower.json component",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 18,
+              "column": 6
+            },
+            "end": {
+              "line": 21,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"../../bower.json\""
+        },
+        {
+          "name": "descriptorUrl",
+          "type": "string",
+          "description": "Is the route of analysis.json component",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 25,
+              "column": 6
+            },
+            "end": {
+              "line": 28,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "\"../../analysis.json\""
+        },
+        {
+          "name": "_metadata",
+          "type": "Object",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 29,
+              "column": 6
+            },
+            "end": {
+              "line": 34,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "{}"
+        },
+        {
+          "name": "_analysis",
+          "type": "Object",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 35,
+              "column": 6
+            },
+            "end": {
+              "line": 40,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "{}"
+        },
+        {
+          "name": "_propertiesComponent",
+          "type": "Object",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 41,
+              "column": 6
+            },
+            "end": {
+              "line": 46,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "{}"
+        },
+        {
+          "name": "_methodsComponent",
+          "type": "Object",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 47,
+              "column": 6
+            },
+            "end": {
+              "line": 52,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "{}"
+        },
+        {
+          "name": "_slotsComponent",
+          "type": "Object",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 53,
+              "column": 6
+            },
+            "end": {
+              "line": 58,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "{}"
+        },
+        {
+          "name": "showDemo",
+          "type": "boolean",
+          "description": "If it´s true show the demo page",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 62,
+              "column": 6
+            },
+            "end": {
+              "line": 66,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {
+              "observer": "\"_setDemo\""
+            }
+          },
+          "defaultValue": "false"
+        }
+      ],
+      "methods": [
+        {
+          "name": "_getBower",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 69,
+              "column": 4
+            },
+            "end": {
+              "line": 71,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_getBowerError",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 72,
+              "column": 4
+            },
+            "end": {
+              "line": 74,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_getAnalysis",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 75,
+              "column": 4
+            },
+            "end": {
+              "line": 80,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_getAnalysisError",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 81,
+              "column": 4
+            },
+            "end": {
+              "line": 83,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "_computeLibrary",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 84,
+              "column": 4
+            },
+            "end": {
+              "line": 105,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "library"
+            }
+          ]
+        },
+        {
+          "name": "_setView",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 106,
+              "column": 4
+            },
+            "end": {
+              "line": 113,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "e"
+            }
+          ]
+        },
+        {
+          "name": "_setDemo",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 114,
+              "column": 4
+            },
+            "end": {
+              "line": 126,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": [
+            {
+              "name": "value"
+            }
+          ]
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 3,
+          "column": 10
+        },
+        "end": {
+          "line": 128,
+          "column": 3
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "attributes": [
+        {
+          "name": "component-name",
+          "description": "Component name, is a obligatory property",
+          "sourceRange": {
+            "start": {
+              "line": 11,
+              "column": 6
+            },
+            "end": {
+              "line": 14,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "bower",
+          "description": "Is the route of bower.json component",
+          "sourceRange": {
+            "start": {
+              "line": 18,
+              "column": 6
+            },
+            "end": {
+              "line": 21,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "descriptor-url",
+          "description": "Is the route of analysis.json component",
+          "sourceRange": {
+            "start": {
+              "line": 25,
+              "column": 6
+            },
+            "end": {
+              "line": 28,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "string"
+        },
+        {
+          "name": "show-demo",
+          "description": "If it´s true show the demo page",
+          "sourceRange": {
+            "start": {
+              "line": 62,
+              "column": 6
+            },
+            "end": {
+              "line": 66,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [],
+      "tagname": "adom-demo-helper-properties"
+    }
+  ]
+}

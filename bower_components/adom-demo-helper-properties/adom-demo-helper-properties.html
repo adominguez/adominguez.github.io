@@ -1,238 +1,470 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-tabs/paper-tabs.html">
 <link rel="import" href="../paper-tabs/paper-tab.html">
-<link rel="import" href="../iron-pages/iron-pages.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../vaadin-icons/vaadin-icons.html">
-<link rel="import" href="../paper-toast/paper-toast.html">
-<link rel="import" href="../paper-swatch-picker/paper-swatch-picker.html">
-<link rel="import" href="../paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../marked-element/marked-element.html">
+<link rel="import" href="../iron-pages/iron-pages.html">
 <link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../paper-input/paper-input.html">
-<link rel="import" href="../paper-input/paper-textarea.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../paper-listbox/paper-listbox.html">
 <link rel="import" href="../paper-item/paper-item.html">
-<link rel="import" href="../juicy-jsoneditor/juicy-jsoneditor.html">
+<link rel="import" href="../paper-swatch-picker/paper-swatch-picker.html">
+<link rel="import" href="../paper-input/paper-textarea.html">
+<link rel="import" href="../paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="../prism-element/prism-highlighter.html">
+<link rel="import" href="../prism-element/prism-theme-default.html">
+
+<!--
+<link rel="import" href="../juicy-jsoneditor/juicy-jsoneditor.html">-->
 <link rel="import" href="adom-demo-helper-properties-styles.html">
 
 <!--
 `adom-demo-helper-properties`
 Is a component created for to be used in other demo components with properties
 
-## Structure
+For use it you must import it as devDependency in your component. In your demo file import it.
 
-With this component you can see your component demo and change his properties and his css var for show the result of component.
+__For example:__
 
-__example__
+```
+<!doctype html>
+<html lang="en">
 
-```html
-<adom-demo-helper-properties id="view0" toast-events='["click-navigation-button"]' component-name="adom-card-color" properties-setted='[{"label": "color", "value": "#65a5f2", "color": "#65a5f2"}, {"label": "heading", "value": "title"}, {"label": "counter", "value": "4", "type": "number"}, {"label": "units", "value": "components"}, {"label": "icon", "selected": "0", "list": [{"value":"icons:view-module"}, {"value": "icons:view-carousel"}, {"value": "icons:touch-app"}, {"value": "icons:today"}]}, {"label": "reverse", "selected": "1", "list": [{"value": "false"}, {"value": "true"}]}]'>
-  <adom-demo-marked>
-  </demo-snippet>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+  <title>Your component description</title>
+
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script>
+    window.Polymer = {
+      dom: 'shadow',
+      lazyRegister: 'true',
+      useNativeCSSProperties: 'true'
+    }
+  </script>
+
+
+  <link rel="import" href="../../adom-demo-helper-properties/adom-demo-helper-properties.html">
+
+  <style is="custom-style" include="adom-demo-helper-propeties-shared-styles">
+    /*Common styles*/
+    body {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <adom-demo-helper-properties component-name="your-component-name">
+  </adom-demo-helper-properties>
+</body>
+
+</html>
+```
+
+__Required attributes__
+
+`componentName` (String): this attribute is required, insert the name of your component
+
+```
+<adom-demo-helper-properties component-name="your-component-name">
 </adom-demo-helper-properties>
 ```
 
-## Properties
+__Other attributes__
 
-With the `properties-setted` property of cells-demo-helper-properties you can create an array with the properties of the component you want. You can see a complete example here:
+`padding` (Number): you can use the attribute padding for set a padding into the device.
 
-```json
-[{"label": "color", "value": "#65a5f2", "color": "#65a5f2"}, {"label": "heading", "value": "title"}, {"label": "counter", "value": "4", "type": "number"}, {"label": "units", "value": "components"}, {"label": "icon", "selected": "0", "list": [{"value":"icons:view-module"}, {"value": "icons:view-carousel"}, {"value": "icons:touch-app"}, {"value": "icons:today"}]}, {"label": "reverse", "selected": "1", "list": [{"value": "false"}, {"value": "true"}]}]
+```
+<adom-demo-helper-properties component-name="your-component-name" padding="20">
+</adom-demo-helper-properties>
 ```
 
-You can add diferents types of items:
+`device` (Array): with this property is possible to change the size of the views.
 
-### Use example input
-
-```json
-{"label": "heading", "value": "title", "type": "text"}
+```
+<adom-demo-helper-properties component-name="your-component-name" device='{"width" : "500px", "height" : "700px"}'>
+</adom-demo-helper-properties>
 ```
 
-### Use example color
+`showDemo` (Boolean): If this property is true the demo is shown.
 
-```json
-{"label": "color", "value": "#65a5f2", "color": "#65a5f2"}
+```
+<adom-demo-helper-properties component-name="your-component-name" show-demo>
+</adom-demo-helper-properties>
 ```
 
-### Use example number
+`optionSelected` (Number): This property define the number of selected option in the demo.
 
-```json
-{"label": "counter", "value": "4", "type": "number"}
+```
+<adom-demo-helper-properties component-name="your-component-name" option-selected="2">
+</adom-demo-helper-properties>
 ```
 
-### Use example select
+`allowSlot` (Boolean): If this property is true the slot is enabled in the demo.
 
-```json
-{"label": "icon", "selected": "0", "list": [{"value":"icons:view-module"}, {"value": "icons:view-carousel"}, {"value": "icons:touch-app"}, {"value": "icons:today"}]}
+```
+<adom-demo-helper-properties component-name="your-component-name" allow-slot>
+</adom-demo-helper-properties>
 ```
 
-## css vars
+The properties `bower`, `package`, `descriptorUrl` and `cssUrl` are the url from differents files. They are necessary for this component.
 
-Use the css vars contened in the file of component `component-name-styles.html`.
-
-Map all the variables found in the file and display them in the demo.
-
-The correct way to use the variables is as follows:
-
-```scss
-.my-class {
-  display: block;
-  box-sizing: border-box;
-  background-color: var(--adom-card-color-bg-color, #00ff00);
-  border-radius: var(--adom-card-color-border, 3px);
-}
-```
-
-`var(--adom-card-color-bg-color, #00ff00);`
-`border-radius: var(--adom-card-color-border, 3px);`
-
-For show a Paint pot in the demo the end of the name of css var must be `color`.
-
-## Events
-
-With the property `toastEvents` it´s possible add all events of component, and show a toast when the event is listener.
-
-```json
-["one-event", "two-event"]
-```
-
-## Styling
-
-The following custom properties and mixins are available for styling:
-
-Custom property                           | Description                                             | Default  |
-------------------------------------------|---------------------------------------------------------|----------|
---adom-demo-helper-properties                               | mixin for host                                          | {}       |
---adom-demo-helper-properties-toast-content-color           | color for contentColor                                  | green    |
---adom-demo-helper-properties-content-page                  | mixin for .contentPage class                            | {}       |
---adom-demo-helper-properties-content-page-info             | mixin for .contentPage__info class                      | {}       |
---adom-demo-helper-properties-content-page-info-heading     | mixin for .contentPage__info__heading class             | {}       |
---adom-demo-helper-properties-content-page-info-description | mixin for .contentPage__info__heading_description class | {}       |
-
-@demo demo/index.html
 -->
 
 <dom-module id="adom-demo-helper-properties">
-  <style include="adom-demo-helper-properties-styles adom-demo-helper-properties-shared-styles"></style>
+  <style include="adom-demo-helper-properties-styles adom-demo-helper-properties-shared-styles prism-theme-default"></style>
   <template>
-    <div class="contentPage">
-      <div class="contentPage__info">
-        <h1 id="heading" class="contentPage__info__heading"></h1>
-        <span id="description" class="contentPage__info__description"></span>
-      </div>
 
-      <div class="tabs">
-        <paper-tabs selected="{{selected}}" noink scrollable>
-          <template is="dom-if" if="[[_propertiesBinded.length]]">
-            <paper-tab>
-              <iron-icon icon="vaadin:curly-brackets"></iron-icon>Component properties
-            </paper-tab>
-          </template>
-          <template is="dom-if" if="[[_mixins.length]]">
-            <paper-tab>
-              <iron-icon icon="vaadin:paintbrush"></iron-icon>Component css vars
-            </paper-tab>
-          </template>
-          <template is="dom-if" if="[[methods.length]]">
-            <paper-tab>
-              <iron-icon icon="vaadin:form"></iron-icon>Component methods
-            </paper-tab>
-          </template>
-          <template is="dom-if" if="[[slot.length]]">
-            <paper-tab>
-              <iron-icon icon="vaadin:code"></iron-icon>Component slot
-            </paper-tab>
-          </template>
-          <template is="dom-if" if="[[propertyBindedData]]">
-            <paper-tab>
-              <iron-icon icon="vaadin:file-tree"></iron-icon>component data
-            </paper-tab>
-          </template>
-        </paper-tabs>
+    <div id="menuDoc" class="menuDoc">
+      <button id="installationButton" class="menuDoc__button" name="installation" on-tap="_setActiveDoc">
+        <iron-icon icon="vaadin:arrow-circle-down-o"></iron-icon>
+        Installation
+      </button>
+      <button id="descriptionButton" class="menuDoc__button" name="description" on-tap="_setActiveDoc">
+        <iron-icon icon="vaadin:clipboard-text"></iron-icon>
+        Description
+      </button>
+      <button id="slotButton" class="menuDoc__button" name="docSlot" on-tap="_setActiveDoc">
+        <iron-icon icon="vaadin:insert"></iron-icon>
+        Slot
+      </button>
+      <button id="stylingButton" class="menuDoc__button" name="docStyling" on-tap="_setActiveDoc">
+        <iron-icon icon="vaadin:fill"></iron-icon>
+        Styling
+      </button>
+      <button id="propertiesButton" class="menuDoc__button" name="docProperties" on-tap="_setActiveDoc">
+        <iron-icon icon="vaadin:road-branches"></iron-icon>
+        Properties
+      </button>
+      <button id="methodsButton" class="menuDoc__button" name="docMethods" on-tap="_setActiveDoc">
+        <iron-icon icon="vaadin:compile"></iron-icon>
+        Methods
+      </button>
+      <button id="eventsButton" class="menuDoc__button" name="docEvents" on-tap="_setActiveDoc">
+        <iron-icon icon="vaadin:share-square"></iron-icon>
+        Events
+      </button>
+    </div>
 
-        <iron-pages selected="{{selected}}">
-          <template is="dom-if" if="[[_propertiesBinded.length]]">
-            <div class="selected">
-              <h3>Component properties</h3>
-              <div class="contentPage__properties">
-                <template is="dom-repeat" items="[[_propertiesBinded]]">
-                  <template is="dom-if" if="[[!item.list]]">
-                    <template is="dom-if" if="[[item.color]]">
-                      <paper-swatch-picker color="{{item.value}}" on-color-changed="_setProperties"></paper-swatch-picker>
-                    </template>
-                    <paper-input label="[[item.label]]" type="[[item.type]]" value="{{item.value}}" on-value-changed="_setProperties">
-                    </paper-input>
-                  </template>
-                  <template is="dom-if" if="[[item.list]]">
-                    <paper-dropdown-menu label="[[item.label]]">
-                      <paper-listbox slot="dropdown-content" class="dropdown-content" selected="{{item.selected}}" on-selected-changed="_setProperties">
-                        <template is="dom-repeat" items="[[item.list]]" as="list">
-                          <paper-item>[[list.value]]</paper-item>
+    <iron-ajax auto url="[[bower]]" handle-as="json" last-response="{{_metadata}}" on-response="_getBower" on-error="_getBowerError"></iron-ajax>
+    <iron-ajax auto url="[[descriptorUrl]]" handle-as="json" last-response="{{_analysis}}" on-response="_getAnalysis" on-error="_getAnalysisError"></iron-ajax>
+    <iron-ajax auto url="[[cssUrl]]" handle-as="text" last-response="{{_cssStyles}}" on-response="_getCss" on-error="_getCssError"></iron-ajax>
+    <iron-ajax auto url="[[package]]" handle-as="text" last-response="{{_package}}" on-response="_getPackage" on-error="_getPackageError"></iron-ajax>
+
+    <article class="main">
+      <h1 class="main__title">
+        [[componentName]]
+      </h1>
+      <span class="main__meta" hidden$="[[!_metadata.author]]">
+        <iron-icon class="main__icon" icon="vaadin:user"></iron-icon>
+        [[_metadata.author]]
+      </span>
+      <span class="main__meta" hidden$="[[!_metadata.version]]">
+        <iron-icon class="main__icon" icon="vaadin:tag"></iron-icon>
+        V [[_metadata.version]]
+      </span>
+      <span class$="main__meta [[_computeLibrary(_metadata.library)]]" hidden$="[[!_metadata.library]]">
+        <iron-icon class="main__icon" src$="[[_computeLibrary(_metadata.library)]]"></iron-icon>
+        [[_metadata.library]]
+      </span>
+      <p class="main__description">
+        [[_metadata.description]]
+      </p>
+
+      <div class="main__content">
+        <div class="main__content__action">
+          <h2 id="titleView" class="main__content__action__titleView">
+          </h2>
+          <div class="main__content__action__selected">
+            <button id="buttonDoc" class="main__content__action__selected__button" on-click="_setView">
+              Documentación
+            </button>
+            <button id="buttonDemo" class="main__content__action__selected__button" on-click="_setView">
+              Demo
+            </button>
+            <div id="selector" class="main__content__action__selected__selector"></div>
+          </div>
+        </div>
+        <div class="main__content__wrap">
+          <div id="viewDoc" class="main__content__wrap__views">
+            <div class="main__content__wrap__views__doc">
+              <div class="main__content__wrap__views__doc__left-panel"></div>
+              <div class="main__content__wrap__views__doc__right-panel">
+                <div id="installation" class="main__content__wrap__views__doc__right-panel__doc-view">
+                  <h3>Installation</h3>
+                  <div class="main__content__wrap__views__doc__right-panel__doc-view__content">
+                    <p>It´s necessary to have installed npm and git.</p>
+                    <p>clone the repo in your local machine:</p>
+                    <marked-element>
+                      <div class="markdown-html code" id="clone"></div>
+                      <script type="text/markdown">
+                        ``` $ git clone ```
+                      </script>
+                    </marked-element>
+                    <p hidden$="[[_computePackage]]">Install the package dependencies using npm:</p>
+                    <marked-element hidden$="[[_computePackage]]">
+                      <div class="markdown-html code"></div>
+                      <script type="text/markdown">
+                        ``` $ npm install ```
+                      </script>
+                    </marked-element>
+                    <p hidden$="[[_computePackage]]">Install the bower dependencies using npm:</p>
+                    <marked-element hidden$="[[_computePackage]]">
+                      <div class="markdown-html code"></div>
+                      <script type="text/markdown">
+                        ``` $ bower install ```
+                      </script>
+                    </marked-element>
+                    <p hidden$="[[_computePackage]]">Serve the component in your local machine:</p>
+                    <marked-element>
+                      <div class="markdown-html code"></div>
+                      <script type="text/markdown">
+                        ``` $ gulp serve ```
+                      </script>
+                    </marked-element>
+                  </div>
+                </div>
+                <div id="description" class="main__content__wrap__views__doc__right-panel__doc-view">
+                  <h3>Description</h3>
+                  <div class="main__content__wrap__views__doc__right-panel__doc-view__content">
+                    <prism-highlighter></prism-highlighter>
+                    <marked-element markdown="[[_componentDescription]]">
+                      <div class="markdown-html code"></div>
+                      <script type="text/markdown">
+                      </script>
+                    </marked-element>
+                  </div>
+                </div>
+                <div id="docSlot" class="main__content__wrap__views__doc__right-panel__doc-view" hidden$="[[_computeSlotDoc]]">
+                  <h3>Slot</h3>
+                  <div class="main__content__wrap__views__doc__right-panel__doc-view__content">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Slot</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <template is="dom-repeat" items="[[_slotsComponent]]">
+                          <tr>
+                            <td>[[item.name]]</td>
+                          </tr>
                         </template>
-                      </paper-listbox>
-                    </paper-dropdown-menu>
-                  </template>
-                </template>
-              </div>
-            </div>
-          </template>
-          <template is="dom-if" if="[[_mixins.length]]">
-            <div class="selected">
-              <h3>Component css vars</h3>
-              <div class="contentPage__properties">
-                <template is="dom-repeat" items="[[_mixins]]">
-                  <template is="dom-if" if="[[_computeColor(item)]]">
-                    <paper-swatch-picker color="{{item.value}}" on-color-changed="_setProperties"></paper-swatch-picker>
-                  </template>
-                  <paper-input label="[[item.mixin]]" type="text" value="{{item.value}}" on-value-changed="_setProperties">
-                  </paper-input>
-                </template>
-              </div>
-            </div>
-          </template>
-          <template is="dom-if" if="[[methods.length]]">
-            <div class="selected">
-              <h3>Component methods</h3>
-              <div class="contentPage__properties">
-                <template is="dom-repeat" items="[[methods]]">
-                  <paper-button raised class="indigo" id$="[[item]]" on-tap="_setMethod">[[item]]</paper-button>
-                </template>
-              </div>
-            </div>
-          </template>
-          <template is="dom-if" if="[[slot.length]]">
-            <div class="selected">
-              <h3>Component slot</h3>
-              <div class="contentPage__properties">
-                <paper-toggle-button checked="{{allowSlot}}" on-checked-changed="_setProperties">The use of slot is actived: [[allowSlot]]</paper-toggle-button>
-                <paper-textarea id="slot" label="slot content" value="{{slotted}}" on-value-changed="_setProperties"></paper-textarea>
-              </div>
-            </div>
-          </template>
-          <template is="dom-if" if="[[propertyBindedData]]">
-            <div class="selected">
-              <h3>Component data</h3>
-              <div class="contentPage__properties">
-                <iron-ajax id="response" auto url="[[dataUrl]]" handle-as="json" last-response="{{data}}"></iron-ajax>
-                <paper-input class="data" label="data" type="text" id="data" value="{{dataUrl}}" on-value-changed="_setProperties"></paper-input>
-                <div>
-                  <juicy-jsoneditor class="juicy-jsoneditor" json="[[data]]"></juicy-jsoneditor>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="docStyling" class="main__content__wrap__views__doc__right-panel__doc-view">
+                  <h3>Styling</h3>
+                  <div class="main__content__wrap__views__doc__right-panel__doc-view__content">
+                    <p>The following custom properties and mixins are available for styling:</p>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="left">Custom property</th>
+                          <th class="left">Description</th>
+                          <th class="left">Default</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <template is="dom-repeat" items="[[_cssVars]]">
+                          <tr>
+                            <td>[[item.varName]]</td>
+                            <td>[[item.description]]</td>
+                            <td>[[item.value]]</td>
+                          </tr>
+                        </template>
+                        <template is="dom-repeat" items="[[_cssMixins]]">
+                          <tr>
+                            <td>[[item.mixin]]</td>
+                            <td>[[item.description]]</td>
+                            <td>{}</td>
+                          </tr>
+                        </template>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div id="docProperties" class="main__content__wrap__views__doc__right-panel__doc-view">
+                  <h3>Properties</h3>
+                  <div class="main__content__wrap__views__doc__right-panel__doc-view__content">
+                    <template is="dom-repeat" items="[[_propertiesComponent]]">
+                      <div class="wrap" hidden$="[[_computeProperties(item)]]">
+                        <div class="flex">
+                          <div class="column1">
+                            <strong>[[item.name]]</strong>
+                            <span class="blue"> ([[item.type]])</span>
+                          </div>
+                          <div class="column2">
+                            [[item.description]]
+                          </div>
+                          <div class="column3 right light">
+                            [[item.defaultValue]]
+                          </div>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+                <div id="docMethods" class="main__content__wrap__views__doc__right-panel__doc-view">
+                  <h3>Methods</h3>
+                  <div class="main__content__wrap__views__doc__right-panel__doc-view__content">
+                    <template is="dom-repeat" items="[[_methodsComponent]]">
+                      <div class="wrap" hidden$="[[_computeMethods(item)]]">
+                        <div class="flex">
+                          <div class="column1">
+                            <strong>[[item.name]]()</strong>
+                          </div>
+                          <div class="column2 right">
+                            [[item.description]]
+                          </div>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+                <div id="docEvents" class="main__content__wrap__views__doc__right-panel__doc-view">
+                  <h3>Events</h3>
+                  <div class="main__content__wrap__views__doc__right-panel__doc-view__content">
+                    <template is="dom-repeat" items="[[_eventsComponent]]">
+                      <div class="wrap">
+                        <div class="flex">
+                          <div class="column1">
+                            <strong>[[item.name]]</strong>
+                          </div>
+                          <div class="column2 right">
+                            [[item.description]]
+                          </div>
+                        </div>
+                      </div>
+                    </template>
+                  </div>
                 </div>
               </div>
             </div>
-          </template>
-        </iron-pages>
+          </div>
+          <div id="viewDemo" class="main__content__wrap__views">
+            <div class="main__content__wrap__views__tabs">
+              <paper-tabs selected="{{optionSelected}}" noink scrollable>
+                <paper-tab>
+                  <iron-icon icon="vaadin:mobile-browser"></iron-icon>Component responsive
+                </paper-tab>
+                <paper-tab>
+                  <iron-icon icon="vaadin:curly-brackets"></iron-icon>Component properties
+                </paper-tab>
+                <paper-tab>
+                  <iron-icon icon="vaadin:paintbrush"></iron-icon>Component css vars
+                </paper-tab>
+                <paper-tab>
+                  <iron-icon icon="vaadin:form"></iron-icon>Component methods
+                </paper-tab>
+                <paper-tab>
+                  <iron-icon icon="vaadin:code"></iron-icon>Component slot
+                </paper-tab>
+                <paper-tab>
+                  <iron-icon icon="vaadin:file-tree"></iron-icon>component data
+                </paper-tab>
+              </paper-tabs>
+              <div class="main__content__wrap__views__tabs">
+                <iron-pages class="main__content__wrap__views__tabs__pages" selected="[[optionSelected]]">
+                  <section class="main__content__wrap__views__tabs__pages__content">
+                    <paper-button id="mobile" raised noink on-tap="_setDevice">
+                      <iron-icon icon="vaadin:mobile"></iron-icon> Mobile
+                    </paper-button>
+                    <paper-button id="tablet" raised noink on-tap="_setDevice">
+                      <iron-icon icon="vaadin:tablet"></iron-icon> Tablet
+                    </paper-button>
+                    <paper-button id="desktop" raised noink on-tap="_setDevice">
+                      <iron-icon icon="vaadin:browser"></iron-icon> Desktop
+                    </paper-button>
+                    <paper-button id="fullsize" raised noink on-tap="_setDevice">
+                      <iron-icon icon="vaadin:expand-full"></iron-icon> Fullsize
+                    </paper-button>
+                    <span class="main__content__wrap__views__tabs__pages__content__span">
+                      Custom:
+                    </span>
+                    <paper-input class="main__content__wrap__views__tabs__pages__content__input" label="width" value="{{device.width}}"></paper-input>
+                    <paper-input class="main__content__wrap__views__tabs__pages__content__input" label="height" value="{{device.height}}"></paper-input>
+                  </section>
+                  <section class="main__content__wrap__views__tabs__pages__content">
+                    <template is="dom-repeat" items="[[_propertiesComponent]]">
+                      <div class="main__content__wrap__views__tabs__pages__content__tooltip" hidden$="[[_computeProperties(item)]]">
+                        <template is="dom-if" if="[[!_computeType(item)]]">
+                          <paper-input class="main__content__wrap__views__tabs__pages__content__input" label="[[item.name]]" value="{{item.defaultValue}}"
+                            on-change="_buildIframe">
+                            <template is="dom-if" if="[[_computeColor(item)]]">
+                              <paper-swatch-picker slot="prefix" class="main__content__wrap__views__tabs__pages__content__input" color="{{item.defaultValue}}"
+                                on-color-changed="_buildIframe"></paper-swatch-picker>
+                            </template>
+                          </paper-input>
+                        </template>
+                        <template is="dom-if" if="[[_computeType(item)]]">
+                          <paper-dropdown-menu class="main__content__wrap__views__tabs__pages__content__input" label="[[item.name]]" vertical-align="top"
+                            horizontal-align="left">
+                            <paper-listbox slot="dropdown-content" class="dropdown-content" selected="{{item.defaultValue}}" on-selected-changed="_buildIframe">
+                              <paper-item>false</paper-item>
+                              <paper-item>true</paper-item>
+                            </paper-listbox>
+                          </paper-dropdown-menu>
+                        </template>
+                        <span class="tooltiptext">[[item.description]]</span>
+                      </div>
+                    </template>
+                  </section>
+                  <section class="main__content__wrap__views__tabs__pages__content">
+                    <template is="dom-repeat" items="[[_cssVars]]">
+                      <div class="main__content__wrap__views__tabs__pages__content__tooltip">
+                        <paper-input class="main__content__wrap__views__tabs__pages__content__input" label="[[item.varName]]" value="{{item.value}}"
+                          on-change="_buildIframe">
+                          <template is="dom-if" if="[[_computeColor(item)]]">
+                            <paper-swatch-picker slot="prefix" color="{{item.value}}" on-color-changed="_buildIframe"></paper-swatch-picker>
+                          </template>
+                        </paper-input>
+                        <span class="tooltiptext">[[item.description]]</span>
+                      </div>
+                    </template>
+                  </section>
+                  <section class="main__content__wrap__views__tabs__pages__content">
+                    methods
+                  </section>
+                  <section class="main__content__wrap__views__tabs__pages__content column">
+                    <paper-toggle-button id="checkSlot" checked="{{allowSlot}}" on-checked-changed="_buildIframe">Usar slot</paper-toggle-button>
+                    <paper-textarea class="main__content__wrap__views__tabs__pages__content__textarea" label="slot content" value="{{_slotted}}"
+                      on-value-changed="_buildIframe"></paper-textarea>
+                  </section>
+                  <paper-toast id="toast">
+                    <div id="toastContent" class="toastContent">
+                    </div>
+                  </paper-toast>
+                </iron-pages>
+              </div>
+            </div>
+            <div class="main__content__wrap__views__demo">
+              <div id="phone" style$="width: [[device.width]]; height: [[device.height]]" class="main__content__wrap__views__demo__phone">
+                <iframe srcdoc="[[_builtIframe]]" id="frame"></iframe>
+              </div>
+            </div>
+            <div class="main__content__wrap__views__code">
+              <paper-icon-button id="iconCopy" icon="vaadin:file-o" title="copy" class="main__content__wrap__views__code__copy" on-tap="copyContent"></paper-icon-button>
+              <prism-highlighter></prism-highlighter>
+              <marked-element class="main__content__wrap__views__code__marked" id="marked" markdown="[[_builtComponent]]">
+                <div class="markdown-html code" id="code"></div>
+                <script type="text/markdown">
+                </script>
+              </marked-element>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <content id="content"></content>
-    </div>
-    <paper-toast id="toast">
-      <div id="toastContent" class="toastContent">
-      </div>
-    </paper-toast>
+    </article>
   </template>
   <script src="adom-demo-helper-properties.js"></script>
 </dom-module>

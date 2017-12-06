@@ -1,35 +1,80 @@
 {
   "name": "adom-demo-helper-properties",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "description": "adom-demo-helper-properties is a component created for to be used in other demo components",
   "main": "adom-demo-helper-properties.html",
+  "author": "ADominguez",
+  "library": "Polymer hybrid",
   "keywords": [
     "demo",
     "properties"
   ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adominguez/adom-demo-helper-properties"
+  },
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.8.0",
-    "paper-tabs": "PolymerElements/paper-tabs#^1.8.0",
-    "iron-pages": "PolymerElements/iron-pages#^1.0.9",
-    "paper-toast": "PolymerElements/paper-toast#^2.0.0",
-    "paper-swatch-picker": "PolymerElements/paper-swatch-picker#^2.0.0",
-    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^2.0.0",
-    "paper-listbox": "PolymerElements/paper-listbox#^2.0.0",
-    "paper-item": "PolymerElements/paper-item#^2.0.0",
-    "paper-input": "PolymerElements/paper-input#^2.0.1",
-    "adom-demo-marked": "adominguez/adom-demo-marked",
-    "paper-toggle-button": "PolymerElements/paper-toggle-button#^2.0.0",
-    "vaadin-icons": "vaadin/vaadin-icons#^4.1.2",
-    "iron-ajax": "PolymerElements/iron-ajax#^2.0.5",
-    "juicy-jsoneditor": "Juicy/juicy-jsoneditor#^1.2.0"
+    "polymer": "Polymer/polymer#1.9 - 2",
+    "vaadin-icons": "vaadin/vaadin-icons#^4.1.3",
+    "iron-icon": "PolymerElements/iron-icon#1 - 2",
+    "iron-icons": "PolymerElements/iron-icons#1 - 2",
+    "paper-tabs": "PolymerElements/paper-tabs#1 - 2",
+    "iron-ajax": "PolymerElements/iron-ajax#1 - 2",
+    "iron-pages": "PolymerElements/iron-pages#1 - 2",
+    "paper-input": "PolymerElements/paper-input#1 - 2",
+    "paper-button": "PolymerElements/paper-button#1 - 2",
+    "paper-icon-button": "PolymerElements/paper-icon-button#1 - 2",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#1 - 2",
+    "paper-listbox": "PolymerElements/paper-listbox#1 - 2",
+    "paper-item": "PolymerElements/paper-item#1 - 2",
+    "paper-swatch-picker": "PolymerElements/paper-swatch-picker#1 - 2",
+    "paper-toggle-button": "PolymerElements/paper-toggle-button#1 - 2",
+    "paper-toast": "PolymerElements/paper-toast#1 - 2",
+    "prism-element": "PolymerElements/prism-element#1 - 2",
+    "marked-element": "PolymerElements/marked-element#1 - 2"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "web-component-tester": "Polymer/web-component-tester#^4.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
-    "adom-card-color": "https://github.com/adominguez/adom-card-color.git"
+    "iron-component-page": "PolymerElements/iron-component-page#1 - 2",
+    "test-fixture": "PolymerElements/test-fixture#^3.0.0",
+    "web-component-tester": "^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  },
+  "variants": {
+    "1.x": {
+      "dependencies": {
+        "polymer": "Polymer/polymer#^1.9",
+        "vaadin-icons": "vaadin/vaadin-icons#^4.1.3",
+        "iron-icon": "PolymerElements/iron-icon#^1.0.0",
+        "iron-icons": "PolymerElements/iron-icons#^1.0.0",
+        "paper-tabs": "PolymerElements/paper-tabs#^1.0.0",
+        "iron-ajax": "PolymerElements/iron-ajax#^1.0.0",
+        "iron-pages": "PolymerElements/iron-pages#^1.0.0",
+        "paper-input": "PolymerElements/paper-input#^1.0.0",
+        "paper-button": "PolymerElements/paper-button#^1.0.0",
+        "paper-icon-button": "PolymerElements/paper-icon-button#^1.0.0",
+        "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#^1.0.0",
+        "paper-listbox": "PolymerElements/paper-listbox#^1.0.0",
+        "paper-item": "PolymerElements/paper-item#^1.0.0",
+        "paper-swatch-picker": "PolymerElements/paper-swatch-picker#^1.0.0",
+        "paper-toggle-button": "PolymerElements/paper-toggle-button#^1.0.0",
+        "paper-toast": "PolymerElements/paper-toast#^1.0.0",
+        "prism-element": "PolymerElements/prism-element#^1.0.0",
+        "iron-page-scroll": "chrisjagoda/iron-page-scroll#^1.1.0",
+        "marked-element": "PolymerElements/marked-element#^1.0.0"
+      },
+      "devDependencies": {
+        "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+        "test-fixture": "PolymerElements/test-fixture#^1.0.0",
+        "web-component-tester": "^4.0.0",
+        "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+      },
+      "resolutions": {
+        "webcomponentsjs": "^0.7"
+      }
+    }
   },
   "resolutions": {
-    "webcomponentsjs": "^0.7.0"
+    "webcomponentsjs": "^1.0.0"
   }
 }

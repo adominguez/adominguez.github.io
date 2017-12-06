@@ -139,6 +139,9 @@ card {
       @apply --app-page-subtitle;
     }
     &__left-content {
+      height: calc(100% - 1px);
+      width: 100%;
+      overflow-y: auto;
       @apply --app-page-title-left-content;
       &__left-content-down {
         padding: 2em 0;
@@ -177,21 +180,21 @@ card {
 }
 
 @media(max-width: 960px) {
-   :host([responsive]) {
-    display: block;
-    @apply --app-page-responsive;
-    .panel-left {
-      width: 100%;
-      @apply --app-page-responsive-panel-left;
-    }
-    .panel-right {
-      position: relative;
-      border-left: 0;
-      border-top: 1px solid var(--app-page-responsive-panel-right-b-t-color, #e5e5e5);
-      width: 100%;
-      @apply --app-page-responsive-panel-right;
-    }
-  }
+  :host([responsive]) {
+   display: block;
+   @apply --app-page-responsive;
+   .panel-left {
+     width: 100%;
+     @apply --app-page-responsive-panel-left;
+   }
+   .panel-right {
+     position: relative;
+     border-left: 0;
+     border-top: 1px solid var(--app-page-responsive-panel-right-b-t-color, #e5e5e5);
+     width: 100%;
+     @apply --app-page-responsive-panel-right;
+   }
+ }
 }
 
 .md-html {
@@ -255,3 +258,17 @@ card {
 :host([fade-in]) {
   animation: pulse 1.5s;
 }
+
+#style-1::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #666;
+  border-radius: 10px;
+  background-color: #F5F5F5; }
+
+#style-1::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5; }
+
+#style-1::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px #666;
+  background-color: #555; }

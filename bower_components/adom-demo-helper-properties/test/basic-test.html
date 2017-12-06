@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <link rel="import" href="../adom-demo-helper-properties.html">
+  </head>
+  <body>
+
+    <test-fixture id="default">
+      <template>
+        <adom-demo-helper-properties></adom-demo-helper-properties>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('<adom-demo-helper-properties>', function() {
+        var el;
+        setup(function() {
+          el = fixture('default');
+        });
+        suite('changes between views', function() {
+          test('clicking demo button change the property showDemo', function() {
+            el.$.buttonDemo.click();
+            assert.isTrue(el.showDemo);
+          });
+          test('clicking doc button change the property showDemo', function() {
+            el.showDemo = true;
+            el.$.buttonDoc.click();
+            assert.isFalse(el.showDemo);
+          });
+          test('clicking demo button change the styles of buttons', function() {
+            el.descriptorUrl = 'analysis.json';
+            flush(function() {
+              el.$.buttonDemo.click();
+              assert.include(el.$.selector.classList.value, 'transition');
+            });
+          });
+          test('clicking demo button change the styles of views', function() {
+            el.descriptorUrl = 'analysis.json';
+            flush(function() {
+              el.$.buttonDemo.click();
+              assert.include(el.$.viewDoc.classList.value, 'transition');
+            });
+          });
+          test('clicking demo button change the styles of views', function() {
+            el.descriptorUrl = 'analysis.json';
+            flush(function() {
+              el.$.buttonDemo.click();
+              assert.include(el.$.viewDemo.classList.value, 'transition');
+            });
+          });
+        });
+        suite('css config', function() {
+          test('cssUrl must be "../../component-name-styles.html"', function() {
+            el.descriptorUrl = 'analysis.json';
+            el.componentName = "my-component"
+            assert.equal(el.cssUrl, "../../my-component-styles.html");
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>

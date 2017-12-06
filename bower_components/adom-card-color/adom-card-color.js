@@ -13,6 +13,30 @@
         value: 'title'
       },
       /**
+       * set the resource
+       */
+      resource: {
+        type: String,
+        value: 'https://github.com'
+      },
+      /**
+       * Set an array with label
+       */
+      label: {
+        type: Array,
+        value: function() {
+          return []
+        }
+      },
+      /**
+       * image of component
+       */
+      img: {
+        type: String,
+        value: null,
+        observer: '_setImg'
+      },
+      /**
        * set a description in the card
        */
       description: {
@@ -24,29 +48,22 @@
        */
       color: {
         type: String,
-        value: '#fff',
+        value: '#00897b',
         observer: '_setColor'
       },
       /**
-       * set the icon of the card
+       * Name of webcomponent to show in .ribbon
        */
-      icon: {
+      webcomponent: {
         type: String,
         value: null
       },
       /**
-       * Number of items
+       * if it´s true the footer is hidden
        */
-      counter: {
-        type: Number,
-        value: null
-      },
-      /**
-       * Number of units
-       */
-      units: {
-        type: String,
-        value: null
+      noFooter: {
+        type: Boolean,
+        value: false
       },
       /**
        * level of heading
@@ -71,17 +88,58 @@
         heading.removeAttribute('aria-level');
       }
     },
+    _setImg: function (newVal) {
+      if(!newVal) {
+        this.img = 'https://basepublica.org/img/avatar_placeholder.png';
+      }
+    },
     _setColor: function() {
       this.customStyle['--adom-card-color-bg-color'] = this.color;
       this.updateStyles();
     },
     /**
-     * Reset component
+     * set Demo
      */
-    reset: function() {
-      this.dispatchEvent(new CustomEvent('adom-card-color-reset', {
+    _setDemo: function() {
+      /**
+       * Fired when button demo is clicked
+       * @event adom-card-color-demo
+       * @param heading
+       */
+      this.dispatchEvent(new CustomEvent('adom-card-color-demo', {
         bubbles: true,
-        composed: true
+        composed: true,
+        detail: this.heading
+      }));
+    },
+    /**
+     * set Documentation
+     */
+    _setDocumentation: function() {
+      /**
+       * Fired when button documentation is clicked
+       * @event adom-card-color-documentation
+       * @param heading
+       */
+      this.dispatchEvent(new CustomEvent('adom-card-color-documentation', {
+        bubbles: true,
+        composed: true,
+        detail: this.heading
+      }));
+    },
+    /**
+     * set Resource
+     */
+    _setResource: function() {
+      /**
+       * Fired when button resource is clicked
+       * @event adom-card-color-resource
+       * @param resource
+       */
+      this.dispatchEvent(new CustomEvent('adom-card-color-resource', {
+        bubbles: true,
+        composed: true,
+        detail: this.resource
       }));
     }
   });

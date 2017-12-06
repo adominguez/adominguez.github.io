@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "clean": "gulp bower-remove && bower cache clean && bower install",
-    "deps": "npm install && bower install -F && node index.js && gulp serve"
+    "deps": "npm install && bower install -F && node index.js && gulp serve",
+    "analyze": "polymer analyze > analysis.json"
   },
   "author": "ADominguez",
   "license": "ISC",
@@ -28,6 +29,7 @@
     "gulp-sourcemaps": "^1.9.1",
     "gulp-uglify": "^2.0.0",
     "replace": "^0.3.0",
-    "superstatic": "^4.1.0"
+    "superstatic": "^4.1.0",
+    "gulp-run-command": "0.0.9"
   }
 }

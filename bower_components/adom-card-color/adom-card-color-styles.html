@@ -5,30 +5,80 @@
 :host {
   display: block;
   box-sizing: border-box;
-  background-color: var(--adom-card-color-bg-color, #00ff00);
+  background-color: var(--adom-card-color-bg-color, #00897b);
   color: var(--adom-card-color-color, #fff);
   border: 1px solid #d7dfe3;
   border-radius: 4px;
   position: relative;
   @apply --adom-card-color; }
 
+.ribbon {
+  position: absolute;
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--adom-card-color-ribbon-bg-color, #f1c40f);
+  border-radius: 3px;
+  right: -15px;
+  top: 20px;
+  z-index: 1;
+  box-shadow: -4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+  @apply --adom-card-color-ribbon; }
+  .ribbon::after {
+    content: "";
+    position: absolute;
+    transform: rotate(90deg);
+    right: 0;
+    top: 41px;
+    z-index: -1;
+    border-bottom: solid 6px var(--adom-card-color-ribbon-after-bg-color, #A48505);
+    border-left: solid 10px var(--adom-card-color-ribbon-after-bg-color, #A48505);
+    border-right: solid 8px transparent;
+    border-top: solid 8px transparent;
+    @apply --adom-card-color-ribbon-after; }
+
 .header {
   display: -ms-flexbox;
   display: flex;
-  padding: 1.25em;
+  position: relative;
+  box-sizing: border-box;
+  height: calc(120px + var(--adom-card-color-header-size, 150px));
   @apply --adom-card-color-header; }
-  .header__icon {
-    margin-right: 20px;
-    -ms-flex-item-align: center;
-    -ms-grid-row-align: center;
-    align-self: center;
-    --iron-icon-height: var(--adom-card-color-header-icon, 64px);
-    --iron-icon-width: var(--adom-card-color-header-icon, 64px);
-    @apply --adom-card-color-header-icon; }
-  .header__heading {
-    padding-top: 10px;
-    font-size: 22px;
-    @apply --adom-card-color-header-heading; }
+  .header__container {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    @apply --adom-card-color-header-container; }
+    .header__container__img {
+      width: var(--adom-card-color-header-size, 150px);
+      height: var(--adom-card-color-header-size, 150px);
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      box-shadow: inset -4px 3px 5px 0px rgba(0, 0, 0, 0.3);
+      @apply --adom-card-color-header-img; }
+    .header__container__heading {
+      padding-top: 10px;
+      font-size: 22px;
+      padding-bottom: 10px;
+      @apply --adom-card-color-header-heading; }
+    .header__container__label {
+      display: inline-block;
+      margin: 0 auto;
+      margin-right: 10px;
+      -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+      padding: 0.5em;
+      color: #fff;
+      font-size: 12px;
+      border: 1px solid #fff;
+      border-radius: 2px;
+      background-color: rgba(0, 0, 0, 0.1);
+      @apply --adom-card-color-header-label; }
 
 .body {
   display: -ms-flexbox;
@@ -36,31 +86,54 @@
   padding: 1.25em;
   font-weight: lighter;
   @apply --adom-card-color-body; }
-  .body__counter {
-    font-size: 22px;
-    min-width: var(--adom-card-color-body-counter-width, 200px);
-    @apply --adom-card-color-body-counter; }
   .body__description {
-    width: calc(100% - var(--adom-card-color-body-counter-width, 200px)); }
+    width: 100%;
+    @apply --adom-card-color-body-description; }
+
+.footer {
+  border-top: 1px solid #fff;
+  @apply --adom-card-color-footer; }
+  .footer__buttons {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    @apply --adom-card-color-footer-buttons; }
+    .footer__buttons__btn {
+      color: var(--adom-card-color-footer-buttons-btn-color, #fff);
+      fill: var(--adom-card-color-footer-buttons-btn-color, #fff);
+      width: 100%;
+      margin: 0;
+      padding: 1em;
+      box-sizing: border-box;
+      border: 0;
+      font-size: 14px;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      margin: 0 auto;
+      cursor: pointer;
+      -ms-flex-align: center;
+      align-items: center;
+      background-color: transparent;
+      @apply --adom-card-color-footer-buttons-btn; }
+      .footer__buttons__btn__svg {
+        width: var(--adom-card-color-footer-buttons-svg-size, 30px);
+        height: var(--adom-card-color-footer-buttons-svg-size, 30px);
+        @apply --adom-card-color-footer-buttons-svg; }
+      .footer__buttons__btn__span {
+        text-transform: uppercase;
+        padding-top: 0.3em;
+        @apply --adom-card-color-footer-buttons-span; }
+    .footer__buttons__btn:focus {
+      background-color: rgba(0, 0, 0, 0.1);
+      outline: none; }
+    .footer__buttons__btn:hover {
+      background-color: rgba(0, 0, 0, 0.2); }
 
 :host([collapsed]) .body {
-  position: absolute;
-  top: 0;
-  margin-left: 85px;
-  max-height: 50px;
-  overflow: hidden;
-  width: 100%;
-  @apply --adom-card-color-body-collapsed; }
-  :host([collapsed]) .body__counter {
-    transform: translate(0, 37px);
-    min-width: 115px;
-    font-size: 14px;
-    font-weight: lighter;
-    height: 40px;
-    color: rgba(255, 255, 255, 0.65);
-    @apply --adom-card-color-body-collapsed-counter; }
-  :host([collapsed]) .body__description {
-    width: calc(100% - var(--adom-card-color-body-counter-width, 200px)); }
+  display: none; }
 
 </style>
 </template>

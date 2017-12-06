@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <link rel="import" href="../adom-card-color.html">
+  </head>
+  <body>
+
+    <test-fixture id="default">
+      <template>
+        <adom-card-color></adom-card-color>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('<adom-card-color>', function() {
+        var el;
+        setup(function() {
+          el = fixture('default');
+        });
+        suite('events', function() {
+          test('clicking demo button fires "adom-card-color-demo" event', function() {
+            var spy = sinon.spy();
+            el.addEventListener('adom-card-color-demo', spy);
+            el.$.demo.click();
+            assert.isTrue(spy.calledOnce);
+          });
+          test('clicking demo button fires "adom-card-color-documentation" event', function() {
+            var spy = sinon.spy();
+            el.addEventListener('adom-card-color-documentation', spy);
+            el.$.doc.click();
+            assert.isTrue(spy.calledOnce);
+          });
+          test('clicking demo button fires "adom-card-color-resource" event', function() {
+            var spy = sinon.spy();
+            el.addEventListener('adom-card-color-resource', spy);
+            el.$.github.click();
+            assert.isTrue(spy.calledOnce);
+          });
+        });
+        suite('hide elements', function() {
+          test('if webcomponents is not defined .ribbon is hidden', function() {
+            assert.isTrue(el.querySelector('.ribbon').hidden);
+          });
+          test('if noFooter is true, footer must be hidden', function() {
+            el.noFooter = true;
+            assert.isTrue(el.querySelector('.footer').hidden);
+          });
+        });
+        suite('image of card', function() {
+          test('if image is undefined the image must be a default image', function() {
+            assert.equal(el.img, 'https://basepublica.org/img/avatar_placeholder.png');
+          });
+        });
+        suite('heading', function() {
+          test('if ariaHeadingLevel is defined .heading must have role heading', function() {
+            assert.equal(el.$.heading.getAttribute('role'), 'heading');
+          });
+          test('if ariaHeadingLevel is defined .heading must have aria-level', function() {
+            el.ariaHeadingLevel = 3;
+            assert.equal(el.$.heading.getAttribute('aria-level'), '3');
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>

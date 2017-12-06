@@ -15,6 +15,7 @@ var gulp = require('gulp'),
   fs = require('fs'),
   replace = require('gulp-replace'),
   bower = require('gulp-bower'),
+  run = require('gulp-run-command').default,
   superstatic = require('superstatic');
 
 
@@ -51,12 +52,17 @@ gulp.task('styles-replace', ['styles'], function () {
 });
 
 /* ======================================================================================================
+ * Task for analyze the doc in Polymer
+ * ======================================================================================================*/
+gulp.task('polymer-analyze', run('npm run analyze'))
+
+/* ======================================================================================================
  * Task for server component
  * ======================================================================================================*/
-gulp.task('serve', ['styles-replace', 'styles', 'watch'], function () {
+gulp.task('serve', ['polymer-analyze', 'styles-replace', 'styles', 'watch'], function () {
   var mw = [
     function (req, res, next) {
-      if ((req.url.indexOf('/bower_components') !== 0) && (req.url !== '/') && (req.url !== '/demo/index.html') && (req.url !== '/adom-card-color.html') && (req.url !== '/adom-card-color.js') && (req.url !== '/adom-card-color-styles.html')) {
+      if ((req.url.indexOf('/bower_components') !== 0) && (req.url !== '/') && (req.url !== '/demo/index.html') && (req.url !== '/test/index.html') && (req.url !== '/test/basic-test.html') && (req.url !== '/adom-card-color.html') && (req.url !== '/adom-card-color.js') && (req.url !== '/adom-card-color-styles.html') && (req.url !== '/bower.json') && (req.url !== '/analysis.json') && (req.url !== '/package.json')) {
         req.url = 'bower_components' + req.url;
       }
       return superstatic({
@@ -69,8 +75,9 @@ gulp.task('serve', ['styles-replace', 'styles', 'watch'], function () {
   ];
   browserSync.init({
     injectChanges: true,
-    files: ['./*.{html, scss}', './demo/index.html', './adom-card-color.js', './dist/css/adom-card-color.css'],
+    files: ['./*.{html, scss}', './demo/index.html', './test/index.html', './test/basic-test.html', './adom-card-color.js', './dist/css/adom-card-color.css'],
     notify: true,
+    startPath: '/demo/index.html',
     server: {
       baseDir: "./",
       directory: false,
