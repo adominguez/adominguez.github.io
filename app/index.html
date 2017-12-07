@@ -225,7 +225,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
 
             <section data-route="webcomponents-component">
-              <app-page id="webcomponentsComponent" responsive fade-in file-name="{{params.name}}">
+              <app-page id="webcomponentsComponent" responsive fade-in>
+                <div slot="left-content">
+                  <adom-demo-helper-properties
+                    component-name="{{params.name}}"
+                    bower="../bower_components/{{params.name}}/bower.json"
+                    bower="../bower_components/{{params.name}}/package.json"
+                    descriptor-url="../bower_components/{{params.name}}/analysis.json"
+                    css-file="../bower_components/{{params.name}}/{{params.name}}-styles.html"
+                    aux-route="../bower_components"></adom-demo-helper-properties>
+                </div>
                 <div slot="right-content">
                   <app-page-content-right github-account="adominguez" component-name="{{params.name}}"></app-page-content-right>
                 </div>

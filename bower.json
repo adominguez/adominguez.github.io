@@ -9,11 +9,11 @@
     "paper-elements": "PolymerElements/paper-elements#^1.0.1",
     "platinum-elements": "PolymerElements/platinum-elements#^1.1.0",
     "paper-menu": "PolymerElements/paper-menu#4fecb43601",
-    "app-page": "https://github.com/adominguez/app-page.git",
+    "app-page": "https://github.com/adominguez/app-page.git#1.1.0",
     "vaadin-icons": "vaadin/vaadin-icons#^4.1.0",
     "social-links": "convoo/social-links#^0.0.2",
-    "adom-card-color": "https://github.com/adominguez/adom-card-color.git",
-    "adom-demo-helper-properties": "https://github.com/adominguez/adom-demo-helper-properties.git",
+    "adom-card-color": "https://github.com/adominguez/adom-card-color.git#^1.1.0",
+    "adom-demo-helper-properties": "https://github.com/adominguez/adom-demo-helper-properties.git#^1.0.0",
     "app-page-content-right": "adominguez/app-page-content-right"
   },
   "devDependencies": {
