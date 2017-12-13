@@ -1,22 +1,50 @@
 {
   "name": "app-page",
-  "version": "1.0.0",
-  "description": "Is a component that shows a structure of page",
+  "version": "2.0.1",
+  "description": "This component shows a page layout with an structure of one or two columns.",
   "main": "app-page.html",
+  "author": "ADominguez",
+  "library": "Polymer hybrid",
   "keywords": [
+    "page",
+    "layout",
     "structure",
-    "page"
+    "loading page"
   ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adominguez/app-page"
+  },
   "ignore": [],
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.8.0",
-    "zero-md": "zerodevx/zero-md"
+    "polymer": "Polymer/polymer#1.9 - 2"
   },
   "devDependencies": {
-    "adom-demo-helper-properties": "https://github.com/adominguez/adom-demo-helper-properties.git",
-    "adom-demo-marked": "https://github.com/adominguez/adom-demo-marked.git",
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
-    "web-component-tester": "Polymer/web-component-tester#^4.0.0",
-    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+    "adom-demo-helper-properties": "https://github.com/adominguez/adom-demo-helper-properties.git#^1.0.0",
+    "iron-component-page": "PolymerElements/iron-component-page#1 - 2",
+    "iron-icons": "PolymerElements/iron-icons#1 - 2",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+  },
+  "variants": {
+    "1.x": {
+      "dependencies": {
+        "polymer": "Polymer/polymer#^1.9.0"
+      },
+      "devDependencies": {
+        "adom-demo-helper-properties": "https://github.com/adominguez/adom-demo-helper-properties.git#^1.0.0",
+        "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+        "iron-icons": "PolymerElements/iron-icons#^1.0.0",
+        "web-component-tester": "Polymer/web-component-tester#^4.0.0",
+        "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+      },
+      "resolutions": {
+        "webcomponentsjs": "^0.7"
+      }
+    }
+  },
+  "resolutions": {
+    "webcomponentsjs": "^1.0.0"
   }
 }

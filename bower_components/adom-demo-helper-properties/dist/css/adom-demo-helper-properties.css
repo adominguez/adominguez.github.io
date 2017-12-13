@@ -111,15 +111,13 @@
       display: -ms-flexbox;
       display: flex;
       -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-      overflow-x: hidden; }
+      flex-wrap: nowrap; }
       .main__content__wrap__views {
         -ms-flex: 0 0 auto;
         flex: 0 0 auto;
         width: 100%;
         transform: translateX(0);
-        transition: transform ease 200ms;
-        overflow: hidden; }
+        transition: transform ease 200ms; }
         .main__content__wrap__views__doc {
           display: -ms-flexbox;
           display: flex;
@@ -186,15 +184,16 @@
           .main__content__wrap__views__doc__right-panel .left {
             text-align: left; }
         .main__content__wrap__views__tabs {
-          position: relative;
-          box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.6); }
+          position: relative; }
           .main__content__wrap__views__tabs__pages {
             padding: 24px; }
             .main__content__wrap__views__tabs__pages__content {
               display: -ms-flexbox;
               display: flex;
               -ms-flex-direction: row;
-              flex-direction: row; }
+              flex-direction: row;
+              -ms-flex-wrap: wrap;
+              flex-wrap: wrap; }
               .main__content__wrap__views__tabs__pages__content__span {
                 padding: 20px;
                 text-transform: uppercase; }
@@ -203,6 +202,14 @@
               .main__content__wrap__views__tabs__pages__content__textarea {
                 -ms-flex: 1;
                 flex: 1; }
+              .main__content__wrap__views__tabs__pages__content__boolean {
+                margin-right: 10px;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -ms-flex-align: center;
+                align-items: center; }
               .main__content__wrap__views__tabs__pages__content__tooltip {
                 position: relative;
                 display: -ms-flexbox;

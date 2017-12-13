@@ -214,7 +214,7 @@
         function removeToast() {
           document.querySelector('#toast').classList.remove('show');
         }
-      `
+        `
       return events;
     },
 
@@ -288,13 +288,14 @@
       var properties = [];
       var slots = [];
       var methods = [];
+      var self = this;
       //Formated Array for _propertiesComponent
       this._analysis.elements[0].properties.forEach(function (element) {
         properties.push({
           "name": element.name,
           "nameHtml": element.name.replace(/(?:^|\.?)([A-Z])/g, function (x,y){return "-" + y.toLowerCase()}).replace(/^_/, ""),
           "description": element.description,
-          "defaultValue": element.defaultValue !== "null" && element.type === "string" ? element.defaultValue.slice(1, -1) : element.defaultValue === "null" ? '' : element.defaultValue,
+          "defaultValue": self._getDefaultValue(element),
           "privacy": element.privacy,
           "type": element.type,
           "special": element.name.slice(-5) === 'color' ? 'color' : ''
@@ -465,14 +466,7 @@
         if (element.type === 'string' && element.defaultValue !== "") {
           properties += element.nameHtml + '="' + element.defaultValue + '" ';
         }
-        if(element.type === 'boolean') {
-          if(element.defaultValue === 1) {
-            element.defaultValue = 'true';
-          } else {
-            element.defaultValue = 'false';
-          }
-        }
-        if (element.type === 'boolean' && element.defaultValue === 'true') {
+        if (element.type === 'boolean' && element.defaultValue === true) {
           properties += element.nameHtml + ' ';
         }
         if (element.type === 'Array' && element.defaultValue !== '[]') {
@@ -496,12 +490,14 @@
           ${styles}
         }
       </style>
-      <${this.componentName} ${properties}>
+      <${this.componentName} id="component" ${properties}>
       ${this.allowSlot ? this._slotted : ''}
       <${this.componentName}/>`
     },
     _buildIframe: function () {
       this._buildComponent();
+      var methods = '';
+      var functions = '';
       this._builtIframe = `<!doctype html>
       <html lang="en">
       <head>
@@ -557,17 +553,40 @@
         </style>
       </head>
       <body>
-        <template is="dom-bind">
+      <dom-bind>
+        <template is="dom-bind" id="demo">
           ${this._builtComponent}
+          ${this._methodsComponent.forEach(function(element) {
+            methods += `
+            <input type="hidden" id="${element.name}" on-click="${element.name}">`
+          })}
+          ${methods}
+          <script>
+            document.addEventListener('WebComponentsReady', function() {
+              var demo = document.querySelector(Polymer.Element ? 'dom-bind' : '#demo');
+
+              ${this._methodsComponent.forEach(function(element) {
+                functions +=`
+                  demo.${element.name} = function() {
+                    demo.$.component.${element.name}();
+                  }
+                `
+              })}
+
+              ${functions}
+            });
+          </script>
           </template>
+        </dom-bind>
         <div id="toast" class="toast" onClick="removeToast()">
           <div class="toastEvent" id="toastEvent">
           </div>
           <div class="detail" id="detail">
           </div>
         </div>
-        <script>
+        <script type="text/javascript">
           ${this._setEvents()}
+
         </script>
       </body>
       </html>
@@ -619,6 +638,28 @@
       if(window.innerWidth < resize) {
         self.$.fullsize.click();
       }
+    },
+    _getDefaultValue: function(value) {
+      if(value.defaultValue !== "null" && value.type === "string") {
+        return value.defaultValue.slice(1, -1);
+      } else {
+        if(value.defaultValue === "null") {
+          return "";
+        }
+        if(value.type === "boolean" && value.defaultValue === "true") {
+          return true;
+        } else {
+          return false;
+        }
+        return value.defaultValue;
+      }
+      element.defaultValue !== "null" && element.type === "string" ? element.defaultValue.slice(1, -1) : element.defaultValue === "null" ? '' : element.defaultValue
+      return value === 'false' ? false : true;
+    },
+
+    _setEventMethod: function(e) {
+      var iframe = this.$.frame;
+      iframe.contentWindow.document.querySelector('#' + e.model.item.name).click();
     }
 
   });

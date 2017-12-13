@@ -407,13 +407,10 @@ The properties `bower`, `package`, `descriptorUrl` and `cssUrl` are the url from
                           </paper-input>
                         </template>
                         <template is="dom-if" if="[[_computeType(item)]]">
-                          <paper-dropdown-menu class="main__content__wrap__views__tabs__pages__content__input" label="[[item.name]]" vertical-align="top"
-                            horizontal-align="left">
-                            <paper-listbox slot="dropdown-content" class="dropdown-content" selected="{{item.defaultValue}}" on-selected-changed="_buildIframe">
-                              <paper-item>false</paper-item>
-                              <paper-item>true</paper-item>
-                            </paper-listbox>
-                          </paper-dropdown-menu>
+                          <div class="main__content__wrap__views__tabs__pages__content__boolean">
+                            <span>[[item.name]]</span></br>
+                            <paper-toggle-button checked="{{item.defaultValue}}" on-checked-changed="_buildIframe"></paper-toggle-button>
+                          </div>
                         </template>
                         <span class="tooltiptext">[[item.description]]</span>
                       </div>
@@ -433,7 +430,18 @@ The properties `bower`, `package`, `descriptorUrl` and `cssUrl` are the url from
                     </template>
                   </section>
                   <section class="main__content__wrap__views__tabs__pages__content">
-                    methods
+
+                    <template is="dom-repeat" items="[[_methodsComponent]]">
+                      <template is="dom-if" if="[[!_computeMethods(item)]]">
+                        <div class="main__content__wrap__views__tabs__pages__content__tooltip">
+                          <paper-button raised on-tap="_setEventMethod">
+                            [[item.name]]
+                          </paper-button>
+                          <span class="tooltiptext">[[item.description]]</span>
+                        </div>
+                      </template>
+                    </template>
+
                   </section>
                   <section class="main__content__wrap__views__tabs__pages__content column">
                     <paper-toggle-button id="checkSlot" checked="{{allowSlot}}" on-checked-changed="_buildIframe">Usar slot</paper-toggle-button>

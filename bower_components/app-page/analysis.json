@@ -1,0 +1,708 @@
+{
+  "schema_version": "1.0.0",
+  "elements": [
+    {
+      "description": "This component shows a page layout with an structure of one or two columns.\n\nThis component has the next layout:\n\n### overlay\n\nIt´s a shadow zone, you can use his slot `overlay-content` for insert content inside of overlay.\n- With the method `openOverlay`, you can show it.\n- With the method `closeOverlay`, you can hide it.\n\n### sidebar\n\nit´s a left sidebar, you can add a nav inside of sidebar, one menu or other information, you can use his slot `sidebar-content` for insert your information .\n- it´s possible change the width of sidebar with the custom css `var(--app-page-sidebar-width)` by defaul the size is 20%. for change the width when the property responsive is true. it´s necessary use the custom css `var(--app-page-sidebar-width-open)`\n\n```\n<style is=\"custom-style\">\n  app-page {\n    --app-page-sidebar-width: 200px;\n    --app-page-sidebar-width-ope: 70%;\n  }\n</style>\n<app-page></app-page>\n```\n\n- It´s possible hide it with the property hideSidebar.\n- If the property responsive is true, the device width is minor than 768px, the sidebar is hide, but it´s possible open it with the method `openSidebar`.\n- For hide the sidebar with the resolution minor than 768px, it must use the method `closeSidebar`.\n\n### header\n\nIt´s the header of page it´s used for show information in top of page.\n- It´s possible change the height with the custom css `var(--app-page-header-height)` by default the size is 60px.\n\n```\n<style is=\"custom-style\">\n  app-page {\n    --app-page-header-height: 40px;\n  }\n</style>\n<app-page></app-page>\n```\n\n- It´s possible hide it with the property hideHeader.\n- It has a slot for add content inside `header-content`.\n- For show the header with fullwidth you can use `fullHeader`.\n\n### Left content\n\nIt´s the principal column for show content in your component.\n\n### Right content\n\nIt´s the secondary column for show content in your component.\n- It´s possible hide it with the property `hideRightContent`.\n- You can custom the width of right panel with the custom css `var(--app-page-panel-right-width)` by default the size is 80px.\n\n### Footer\n\nIt´s the footer of page it´s used for show information in bottom of page.\n- It´s possible change the height with the custom css `var(--app-page-footer-height)` by default the size is 80px.\n\n```\n<style is=\"custom-style\">\n  app-page {\n    --app-page-footer-height: 40px;\n  }\n</style>\n<app-page></app-page>\n```\n\n- It´s possible hide it with the property hideFooter.\n- It has a slot for add content inside `footer-content`.\n- For show the full footer you can do it with `fullFooter` property.\n\n### bottomsheet\n\nIt´s a bottom zone, it´s hide. It can shows with the method `openBottomSheet`and it´s closed with the method `closeBottomSheet`\n- It´s possible change the value of the height with the custom css `--app-page-bottomsheet-height`",
+      "summary": "",
+      "path": "app-page.js",
+      "properties": [
+        {
+          "name": "hidePanelRight",
+          "type": "boolean",
+          "description": "if is true dont show the panel right",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 10,
+              "column": 6
+            },
+            "end": {
+              "line": 14,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "hideHeader",
+          "type": "boolean",
+          "description": "if is true the header doesn´t show",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 18,
+              "column": 6
+            },
+            "end": {
+              "line": 22,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "hideFooter",
+          "type": "boolean",
+          "description": "if is true the header doesn´t show",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 26,
+              "column": 6
+            },
+            "end": {
+              "line": 30,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "hideSidebar",
+          "type": "boolean",
+          "description": "if is true the header doesn´t show",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "fullHeader",
+          "type": "boolean",
+          "description": "if is true the header shows at 100%",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 42,
+              "column": 6
+            },
+            "end": {
+              "line": 46,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "fullFooter",
+          "type": "boolean",
+          "description": "if is true the footer shows at 100%",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 6
+            },
+            "end": {
+              "line": 54,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "showOverlay",
+          "type": "boolean",
+          "description": "if is true show the overlay",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 62,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "fadeIn",
+          "type": "boolean",
+          "description": "If is true show an animation to load the page",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 66,
+              "column": 6
+            },
+            "end": {
+              "line": 70,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "responsive",
+          "type": "boolean",
+          "description": "If is true the component is responsive to 770px",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 6
+            },
+            "end": {
+              "line": 78,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "showProgressBar",
+          "type": "boolean",
+          "description": "If is true show a progress bar for loading",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 6
+            },
+            "end": {
+              "line": 85,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "showBottomsheet",
+          "type": "boolean",
+          "description": "If is true shows a bottom region",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 89,
+              "column": 6
+            },
+            "end": {
+              "line": 93,
+              "column": 7
+            }
+          },
+          "metadata": {
+            "polymer": {}
+          },
+          "defaultValue": "false"
+        }
+      ],
+      "methods": [
+        {
+          "name": "ready",
+          "description": "",
+          "privacy": "protected",
+          "sourceRange": {
+            "start": {
+              "line": 96,
+              "column": 4
+            },
+            "end": {
+              "line": 105,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "openSidebar",
+          "description": "if the component is responsive, the device is minor than 768px and hideSidebar is false open the sidebar",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 110,
+              "column": 4
+            },
+            "end": {
+              "line": 117,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "closeSidebar",
+          "description": "This close the sidebar if the sidebar is opened",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 121,
+              "column": 4
+            },
+            "end": {
+              "line": 127,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "openOverlay",
+          "description": "Open the overlay",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 131,
+              "column": 4
+            },
+            "end": {
+              "line": 133,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "closeOverlay",
+          "description": "Close the overlay",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 137,
+              "column": 4
+            },
+            "end": {
+              "line": 139,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "startLoading",
+          "description": "start the loading of page",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 143,
+              "column": 4
+            },
+            "end": {
+              "line": 145,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "stopLoading",
+          "description": "stop the loading of page",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 149,
+              "column": 4
+            },
+            "end": {
+              "line": 151,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "openBottomSheet",
+          "description": "Open bottomsheet",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 155,
+              "column": 4
+            },
+            "end": {
+              "line": 157,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        },
+        {
+          "name": "closeBottomSheet",
+          "description": "Open bottomsheet",
+          "privacy": "public",
+          "sourceRange": {
+            "start": {
+              "line": 161,
+              "column": 4
+            },
+            "end": {
+              "line": 163,
+              "column": 5
+            }
+          },
+          "metadata": {},
+          "params": []
+        }
+      ],
+      "staticMethods": [],
+      "demos": [],
+      "metadata": {},
+      "sourceRange": {
+        "start": {
+          "line": 2,
+          "column": 10
+        },
+        "end": {
+          "line": 165,
+          "column": 3
+        }
+      },
+      "privacy": "public",
+      "superclass": "HTMLElement",
+      "attributes": [
+        {
+          "name": "hide-panel-right",
+          "description": "if is true dont show the panel right",
+          "sourceRange": {
+            "start": {
+              "line": 10,
+              "column": 6
+            },
+            "end": {
+              "line": 14,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "hide-header",
+          "description": "if is true the header doesn´t show",
+          "sourceRange": {
+            "start": {
+              "line": 18,
+              "column": 6
+            },
+            "end": {
+              "line": 22,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "hide-footer",
+          "description": "if is true the header doesn´t show",
+          "sourceRange": {
+            "start": {
+              "line": 26,
+              "column": 6
+            },
+            "end": {
+              "line": 30,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "hide-sidebar",
+          "description": "if is true the header doesn´t show",
+          "sourceRange": {
+            "start": {
+              "line": 34,
+              "column": 6
+            },
+            "end": {
+              "line": 38,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "full-header",
+          "description": "if is true the header shows at 100%",
+          "sourceRange": {
+            "start": {
+              "line": 42,
+              "column": 6
+            },
+            "end": {
+              "line": 46,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "full-footer",
+          "description": "if is true the footer shows at 100%",
+          "sourceRange": {
+            "start": {
+              "line": 50,
+              "column": 6
+            },
+            "end": {
+              "line": 54,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "show-overlay",
+          "description": "if is true show the overlay",
+          "sourceRange": {
+            "start": {
+              "line": 58,
+              "column": 6
+            },
+            "end": {
+              "line": 62,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "fade-in",
+          "description": "If is true show an animation to load the page",
+          "sourceRange": {
+            "start": {
+              "line": 66,
+              "column": 6
+            },
+            "end": {
+              "line": 70,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "responsive",
+          "description": "If is true the component is responsive to 770px",
+          "sourceRange": {
+            "start": {
+              "line": 74,
+              "column": 6
+            },
+            "end": {
+              "line": 78,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "show-progress-bar",
+          "description": "If is true show a progress bar for loading",
+          "sourceRange": {
+            "start": {
+              "line": 82,
+              "column": 6
+            },
+            "end": {
+              "line": 85,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        },
+        {
+          "name": "show-bottomsheet",
+          "description": "If is true shows a bottom region",
+          "sourceRange": {
+            "start": {
+              "line": 89,
+              "column": 6
+            },
+            "end": {
+              "line": 93,
+              "column": 7
+            }
+          },
+          "metadata": {},
+          "type": "boolean"
+        }
+      ],
+      "events": [],
+      "styling": {
+        "cssVariables": [],
+        "selectors": []
+      },
+      "slots": [
+        {
+          "description": "",
+          "name": "overlay-content",
+          "range": {
+            "file": "app-page.html",
+            "start": {
+              "line": 93,
+              "column": 8
+            },
+            "end": {
+              "line": 95,
+              "column": 15
+            }
+          }
+        },
+        {
+          "description": "",
+          "name": "sidebar-content",
+          "range": {
+            "file": "app-page.html",
+            "start": {
+              "line": 100,
+              "column": 8
+            },
+            "end": {
+              "line": 102,
+              "column": 15
+            }
+          }
+        },
+        {
+          "description": "",
+          "name": "header-content",
+          "range": {
+            "file": "app-page.html",
+            "start": {
+              "line": 108,
+              "column": 8
+            },
+            "end": {
+              "line": 110,
+              "column": 15
+            }
+          }
+        },
+        {
+          "description": "",
+          "name": "left-content",
+          "range": {
+            "file": "app-page.html",
+            "start": {
+              "line": 119,
+              "column": 10
+            },
+            "end": {
+              "line": 121,
+              "column": 17
+            }
+          }
+        },
+        {
+          "description": "",
+          "name": "left-content-down",
+          "range": {
+            "file": "app-page.html",
+            "start": {
+              "line": 123,
+              "column": 12
+            },
+            "end": {
+              "line": 125,
+              "column": 19
+            }
+          }
+        },
+        {
+          "description": "",
+          "name": "right-content",
+          "range": {
+            "file": "app-page.html",
+            "start": {
+              "line": 131,
+              "column": 10
+            },
+            "end": {
+              "line": 133,
+              "column": 17
+            }
+          }
+        },
+        {
+          "description": "",
+          "name": "footer-content",
+          "range": {
+            "file": "app-page.html",
+            "start": {
+              "line": 138,
+              "column": 10
+            },
+            "end": {
+              "line": 140,
+              "column": 17
+            }
+          }
+        },
+        {
+          "description": "",
+          "name": "bottomsheet-content",
+          "range": {
+            "file": "app-page.html",
+            "start": {
+              "line": 146,
+              "column": 8
+            },
+            "end": {
+              "line": 148,
+              "column": 15
+            }
+          }
+        }
+      ],
+      "tagname": "app-page"
+    }
+  ]
+}

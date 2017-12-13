@@ -14,31 +14,21 @@
       lazyRegister: 'true',
       useNativeCSSProperties: 'true'
     }
-
   </script>
 
-  <link rel="import" href="../../adom-demo-marked/adom-demo-marked.html">
+
   <link rel="import" href="../../adom-demo-helper-properties/adom-demo-helper-properties.html">
-  <link rel="import" href="../app-page.html">
 
-  <style is="custom-style" include="demo-pages-shared-styles">
+  <style is="custom-style" include="demo-pages-shared-styles adom-demo-helper-propeties-shared-styles">
     /*Common styles*/
-
-    adom-demo-marked {
-      --adom-demo-marked-demo: {
-        display: block;
-      };
+    body {
+      margin: 0;
     }
-
   </style>
 </head>
 
 <body>
-  <adom-demo-helper-properties id="demo" component-name="app-page" properties-setted='[{"label": "title-page", "value": "Title page"}, {"label": "subtitle-page", "value": "Subtitle page"}, {"label": "readme", "selected": "0", "list": [{"value":""}, {"value": "https://raw.githubusercontent.com/adominguez/app-page/master/demo/FILE.md"}, {"value": "https://raw.githubusercontent.com/PolymerElements/polymer-starter-kit/master/README.md"}]}, {"label": "file-name", "selected": "1", "list": [{"value":""}, {"value": "adom-card-color"}]}, {"label": "hide-panel-right", "selected": "0", "list": [{"value": "false"}, {"value": "true"}]}, {"label": "fade-in", "selected": "0", "list": [{"value": "false"}, {"value": "true"}]}, {"label": "responsive", "selected": "0", "list": [{"value": "false"}, {"value": "true"}]}]'>
-    <adom-demo-marked id="view0" data-heading="Basic app-header">
-      <template is="dom-bind">
-      </template>
-    </adom-demo-marked>
+  <adom-demo-helper-properties component-name="app-page" show-demo device='{"width" : "1024px", "height" : "768px"}'>
   </adom-demo-helper-properties>
 </body>
 

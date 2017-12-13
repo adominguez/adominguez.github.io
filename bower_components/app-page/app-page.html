@@ -1,133 +1,151 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../zero-md/zero-md.html">
 <link rel="import" href="app-page-styles.html">
-<link rel="stylesheet" href="../zero-md/highlight-themes/default.css">
-<link rel="stylesheet" href="../zero-md/markdown-themes/default.css">
 
 <!--
-`app-page` shows a structure of page with the option of add a markdown file inside for show all information in a page.
+This component shows a page layout with an structure of one or two columns.
 
-## Installing the component
+This component has the next layout:
 
-- For install it, clone the repository in your local machine
+### overlay
 
-```
-  $ git clone https://github.com/adominguez/app-page.git
-```
+It´s a shadow zone, you can use his slot `overlay-content` for insert content inside of overlay.
+- With the method `openOverlay`, you can show it.
+- With the method `closeOverlay`, you can hide it.
 
-- Do a npm install and bower install
+### sidebar
 
-```
-  $ npm install && bower install
-```
-
-## Serving the component
-
-You can serve the component with:
+it´s a left sidebar, you can add a nav inside of sidebar, one menu or other information, you can use his slot `sidebar-content` for insert your information .
+- it´s possible change the width of sidebar with the custom css `var(--app-page-sidebar-width)` by defaul the size is 20%. for change the width when the property responsive is true. it´s necessary use the custom css `var(--app-page-sidebar-width-open)`
 
 ```
-  $ gulp serve
+<style is="custom-style">
+  app-page {
+    --app-page-sidebar-width: 200px;
+    --app-page-sidebar-width-ope: 70%;
+  }
+</style>
+<app-page></app-page>
 ```
 
-__Example__
+- It´s possible hide it with the property hideSidebar.
+- If the property responsive is true, the device width is minor than 768px, the sidebar is hide, but it´s possible open it with the method `openSidebar`.
+- For hide the sidebar with the resolution minor than 768px, it must use the method `closeSidebar`.
 
-```html
-<app-page title-page="blog" subtitle-page="Marked publications" fade-in></app-page>
+### header
+
+It´s the header of page it´s used for show information in top of page.
+- It´s possible change the height with the custom css `var(--app-page-header-height)` by default the size is 60px.
+
+```
+<style is="custom-style">
+  app-page {
+    --app-page-header-height: 40px;
+  }
+</style>
+<app-page></app-page>
 ```
 
-__markdown file Example__
+- It´s possible hide it with the property hideHeader.
+- It has a slot for add content inside `header-content`.
+- For show the header with fullwidth you can use `fullHeader`.
 
-```html
-<app-page readme="https://raw.githubusercontent.com/PolymerElements/polymer-starter-kit/master/README.md" title-page="blog" subtitle-page="Marked publications" fade-in></app-page>
+### Left content
+
+It´s the principal column for show content in your component.
+
+### Right content
+
+It´s the secondary column for show content in your component.
+- It´s possible hide it with the property `hideRightContent`.
+- You can custom the width of right panel with the custom css `var(--app-page-panel-right-width)` by default the size is 80px.
+
+### Footer
+
+It´s the footer of page it´s used for show information in bottom of page.
+- It´s possible change the height with the custom css `var(--app-page-footer-height)` by default the size is 80px.
+
+```
+<style is="custom-style">
+  app-page {
+    --app-page-footer-height: 40px;
+  }
+</style>
+<app-page></app-page>
 ```
 
-__Responsive example__
+- It´s possible hide it with the property hideFooter.
+- It has a slot for add content inside `footer-content`.
+- For show the full footer you can do it with `fullFooter` property.
 
-```html
-<app-page title-page="Contact" subtitle-page="contact with us" responsive fade-in></app-page>
-```
+### bottomsheet
 
-This component is responsive at 960px. Then the right content goes down in the page
+It´s a bottom zone, it´s hide. It can shows with the method `openBottomSheet`and it´s closed with the method `closeBottomSheet`
+- It´s possible change the value of the height with the custom css `--app-page-bottomsheet-height`
 
-## Slot
 
-This component has three `slot`:
-
-| slot               | function                               |
-|:------------------ | --------------------------------------:|
-| left-content       | Show the information in the page       |
-| left-content-down  | Show information down of left-content  |
-| right-content      | Show the right sidebar                 |
-
-## Styling
-The following custom properties and mixins are available for styling:
-
-| Custom property                              | Description                                         | Default |
-|:-------------------------------------------- |:--------------------------------------------------- | -------:|
-| --app-page-first-color                       | color for first color                               | #212121 |
-| --app-page-second-color                      | color for second color                              | #666    |
-| --app-page-blockquote-bg-color               | background color for blockquote                     | #eeeeee |
-| --app-page-h1                                | empty mixin for h1                                  | {}      |
-| --app-page-h2                                | empty mixin for h2                                  | {}      |
-| --app-page-h3                                | empty mixin for h3                                  | {}      |
-| --app-page-h4                                | empty mixin for h4                                  | {}      |
-| --app-page-h5                                | empty mixin for h5                                  | {}      |
-| --app-page-h6                                | empty mixin for h6                                  | {}      |
-| --app-page-p                                 | empty mixin for p                                   | {}      |
-| --app-page-blockquote                        | empty mixin for blockquote                          | {}      |
-| --app-page-blockquote-p                      | empty mixin for blockquote p                        | {}      |
-| --app-page-code                              | empty mixin for code                                | {}      |
-| --app-page-list                              | empty mixin for list                                | {}      |
-| --app-page-list-li                           | empty mixin for list li                             | {}      |
-| --app-page-link-color                        | color for link                                      | #FF4081 |
-| --app-page-link                              | empty mixin for link                                | {}      |
-| --app-page-link-hover-color                  | color for link hover                                | #212121 |
-| --app-page-link-hover                        | empty mixin for link hover                          | {}      |
-| --app-page-link-visited                      | empty mixin for link visited                        | {}      |
-| --app-page-card                              | empty mixin for card                                | {}      |
-| --app-page-bg-color                          | background for host                                 | #fafafa |
-| --app-page                                   | empty mixin for host                                | {}      |
-| --app-page-panel-right-width                 | width for panel right                               | 200px   |
-| --app-page-panel-left                        | empty mixin for panel-left                          | {}      |
-| --app-page-title                             | empty mixin for title                               | {}      |
-| --app-page-subtitle                          | empty mixin for sutitle                             | {}      |
-| --app-page-title-left-content                | empty mixin for left content                        | {}      |
-| --app-page-panel-right-b-l-color             | border left for panel-right                         | #e5e5e5 |
-| --app-page-panel-right-bg-color              | background color for panel-right                    | #fff    |
-| --app-page-panel-right                       | empty mixin for panel-right                         | {}      |
-| --app-page-title-right-content               | empty mixin for right-content                       | {}      |
-| --app-page-hide-panel-right                  | empty mixin for host([hide-panel-right])            | {}      |
-| --app-page-hide-panel-right-panel-left       | empty mixin for host([hide-panel-right]) panel-left | {}      |
-| --app-page-responsive                        | empty mixin for host([responsive])                  | {}      |
-| --app-page-responsive-panel-left             | empty mixin for host([responsive]) panel-left       | {}      |
-| --app-page-responsive-panel-right-b-t-color  | border top for host([hide-panel-right]) panel-right | #e5e5e5 |
-| --app-page-responsive-panel-right            | empty mixin for host([responsive]) panel-right      | {}      |
-
-@demo demo/index.html
 -->
 
 <dom-module id="app-page">
-  <style include="app-page-styles app-page-shared-styles"></style>
   <template is="dom-bind" id="component0">
-    <div class="panel-left" id="panel-left">
-      <h1 class="panel-left__title" hidden$="[[!titlePage]]">[[titlePage]]</h1>
-      <h2 class="panel-left__subtitle" hidden$="[[!subtitlePage]]">[[subtitlePage]]</h2>
-      <div class="panel-left__left-content" id="style-1">
-        <slot name="left-content">
-          <zero-md id="zero" class="panel-left__left-content__zero" file="{{_fileUrl}}">
-            <div class="md-html"></div>
-          </zero-md>
-          <iframe scrolling="no" src$="{{_fileUrl}}" id="iframe" class="panel-left__left-content__iframe" frameborder="0"></iframe>
+    <style include="app-page-styles app-page-shared-styles"></style>
+
+    <div class="overlay" id="overlay" on-tap="closeSidebar">
+      <div class="overlay__content">
+        <slot name="overlay-content">
+          Overlay content
         </slot>
-        <div class="panel-left__left-content__left-content-down">
-          <slot name="left-content-down">
+      </div>
+    </div>
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar__content">
+        <slot name="sidebar-content">
+          sidebar content
+        </slot>
+      </div>
+    </div>
+
+    <div class="header" id="header">
+      <div class="header__content">
+        <slot name="header-content">
+          header content
+        </slot>
+      </div>
+    </div>
+    <div class="main">
+      <div class="panel-left" id="panel-left">
+        <div id="progressbar" hidden="[[!showProgressBar]]">
+          <span id="loading"></span>
+        </div>
+        <div class="panel-left__left-content" id="style-1">
+          <slot name="left-content">
+            left content
+          </slot>
+          <div class="panel-left__left-content__left-content-down">
+            <slot name="left-content-down">
+              left content down
+            </slot>
+          </div>
+        </div>
+      </div>
+      <div class="panel-right">
+        <div class="panel-right__right-content">
+          <slot name="right-content">
+            right content
+          </slot>
+        </div>
+      </div>
+      <div class="footer" id="footer">
+        <div class="footer__content">
+          <slot name="footer-content">
+            footer content
           </slot>
         </div>
       </div>
     </div>
-    <div class="panel-right" hidden$="[[hidePanelRight]]">
-      <div class="panel-right__right-content">
-        <slot name="right-content">
+    <div class="bottomsheet" id="bottomsheet">
+      <div class="bottomsheet__content">
+        <slot name="bottomsheet-content">
+          bottomsheet content
         </slot>
       </div>
     </div>

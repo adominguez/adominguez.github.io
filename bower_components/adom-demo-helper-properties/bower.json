@@ -1,6 +1,6 @@
 {
   "name": "adom-demo-helper-properties",
-  "version": "1.0.1",
+  "version": "1.0.7",
   "description": "adom-demo-helper-properties is a component created for to be used in other demo components",
   "main": "adom-demo-helper-properties.html",
   "author": "ADominguez",
